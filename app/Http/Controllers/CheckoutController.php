@@ -41,7 +41,7 @@ class CheckoutController extends Controller
         $request->validate([
             'nom' => 'required|string',
             'prenom' => 'required|string',
-            'cartnational' => 'required|string',
+            'cartnational' => 'nullable|file|mimes:pdf,docx,jpeg,png,jpg,gif|max:2048',
            // 'email' => 'nullable|email',
             'tele' => 'required|numeric',
            // 'ville' => 'nullable|string',

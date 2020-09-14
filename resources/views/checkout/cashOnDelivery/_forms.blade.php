@@ -5,7 +5,7 @@
     </div>
 
     <hr/>
-    <form method="post" action="{{route('checkout.delivery',$product->slug)}}" class="myForm">
+    <form method="post" action="{{route('checkout.delivery',$product->slug)}}" class="myForm" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-12 form-creditdilevry">
@@ -21,7 +21,9 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                    <input type="text" name="cartnational" class="form-control cartNational" value="{{old('cartnational')}}" placeholder="carte national code" />
+                    {{--<input type="text" name="cartnational" class="form-control cartNational" value="{{old('cartnational')}}" placeholder="carte national code" />--}}
+                    <label for="cartN">Cart National (pdf,docx,jpeg,png,jpg,gif) max 2mb</label>
+                    <input type="file" name="cartnational" class="form-control-file" id="cartN">
                     </div>
                 </div>
    
