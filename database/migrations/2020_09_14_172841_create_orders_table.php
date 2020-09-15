@@ -24,6 +24,8 @@ class CreateOrdersTable extends Migration
             $table->string('address')->nullable();
             $table->longText('message')->nullable();
             $table->string('paymentMethode')->nullable();
+
+            $table->string('totalPrice')->nullable();
             /**************** */
             $table->string('orderNumber')->unique();
             $table->string('productName');

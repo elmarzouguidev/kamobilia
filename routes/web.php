@@ -29,12 +29,19 @@ Route::get('/contact', ['uses' => 'SiteController@contact', 'as' => 'contact']);
 Route::get('/terms-of-use', ['uses' => 'SiteController@terms', 'as' => 'terms']);
 
 Route::get('/checkout/{slug}', ['uses' => 'CheckoutController@index', 'as' => 'checkout']);
+Route::post('/checkout/{slug}', ['uses' => 'CheckoutController@checkoutPerso', 'as' => 'checkout.perso']);
 // ->where('slug','^([0-9A-Za-z\-]+)?bar([0-9A-Za-z\-]+)?');
 //Route::get('/checkout/{slug}',['uses'=>'CheckoutController@show','as'=>'checkout.single']);
 
 Route::get('/checkout/{slug}/cash-on-delivery',  ['uses' => 'CheckoutController@cashOnDelivery', 'as' => 'checkout.delivery']);
 Route::post('/checkout/{slug}/cash-on-delivery', ['uses' => 'CheckoutController@cashOnDeliveryPost', 'as' => 'checkout.delivery'])
     ->middleware('throttle:rate_limit,1');
+
+Route::get('/checkout/{slug}/credit-institution',  ['uses' => 'CheckoutController@creditBanque', 'as' => 'checkout.banque']);
+Route::post('/checkout/{slug}/credit-institution', ['uses' => 'CheckoutController@creditBanquePost', 'as' => 'checkout.banque']);
+
+Route::get('/checkout/{slug}/credit-direct',  ['uses' => 'CheckoutController@creditDirect', 'as' => 'checkout.direct']);
+Route::post('/checkout/{slug}/credit-direct', ['uses' => 'CheckoutController@creditDirectPost', 'as' => 'checkout.direct']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

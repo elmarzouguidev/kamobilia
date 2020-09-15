@@ -349,7 +349,7 @@
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>order type:</strong> Paiement cash a la livraison
+                                                        <strong>Methode de paiement:</strong> {{$order->paymentMethode}}
 
                                                     </p>
                                                 </td>
@@ -456,12 +456,12 @@
                                             <tr>
                                                 <td width="50%" valign="top">
                                                     <p style="font-family:sans-serif;font-size:28px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#3a3d45;text-align:left;">
-                                                        <strong>Total price</strong>
+                                                        <strong>le prix total</strong>
                                                     </p>
                                                 </td>
                                                 <td width="50%" valign="top">
                                                     <p style="font-family:sans-serif;font-size:28px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#3a3d45;text-align:right;">
-                                                        $ 1259,00
+                                                        {{$order->totalPrice}} MAD
                                                     </p>
                                                 </td>
                                             </tr>
@@ -485,7 +485,7 @@
                                             Payments should be made within 30 days with one of the options below, or you can enter any note here if necessary, you have much space:
                                         </p>
                                         <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#484848;text-align:center;">
-                                            <strong>Payment Methods:</strong> Paiement cash a la livraison
+                                            <strong>Methode de paiement:</strong> {{$order->paymentMethode}}
                                             <br />
                                             
                                         </p>

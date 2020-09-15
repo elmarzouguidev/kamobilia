@@ -212,11 +212,11 @@
                             <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
                                 <tr>
                                     <td class="header-item">
-                                        <img src="assets/images/logo-dark.png" alt="" />
+                                        <img src="http://localhost:8000/assets/images/logo.png" alt="" />
                                     </td>
                                     <td class="header-item">
                                         <p style="font-family:sans-serif;font-size:20px;font-weight:bold;text-transform:uppercase;margin-top:0;margin-bottom:0;color:#484848;text-align:right;">
-                                            Invoice
+                                            Ordre
                                         </p>
                                         <p style="font-family:sans-serif;font-size:12px;font-weight:normal;text-transform:uppercase;margin-top:0;margin-bottom:0;color:#484848;text-align:right;">
                                             {{$order->orderNumber}}
@@ -243,31 +243,6 @@
                         </td>
                     </tr>
 
-                    <!-- ========= Intro text ========= -->
-
-                    <tr>
-                        <td style="background:#f7f7f7;padding:35px 0;border-top:1px solid #eeeeee;">
-                            <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
-
-                                <tr>
-                                    <td colspan="2">
-                                        <p style="font-family:sans-serif;font-size:22px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:10px;color:#464951;text-align:left;">
-                                            Your order is completed!!
-                                        </p>
-                                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;color:#464951;text-align:left;">
-                                            Dear costumer, your payment for your online order placed on Mobel Furniture Store order and has been approved order reference number: <strong>WEB8974635</strong>.
-                                            Please note that we will appear on your card statement. To get further payment support for your purchase, please sign-up
-                                            using your email address at
-                                            <a href="{{route('home')}}" style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;">
-                                                Kamobilia Store
-                                            </a>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-
                     <!-- ========= User info ========= -->
 
                     <tr>
@@ -279,68 +254,75 @@
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:22px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>info</strong>
+                                                        <strong>Informations d'expédition</strong>
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>nom complet:</strong> {{$order->nom}} {{$order->prenom}}
+                                                        <strong>Nom complet:</strong> {{$order->nom}} {{$order->prenom}}
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>téléphone:</strong> {{$order->tele}}
+                                                        <strong>Téléphone:</strong> {{$order->tele}}
                                                     </p>
                                                 </td>
                                             </tr>
-                                            {{--<tr>
-                                                <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
-                                                    <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>Email:</strong> johndoe@company.com
-                                                    </p>
-                                                </td>
-                                            </tr>--}}
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>adresse:</strong> {{$order->address}}
+                                                        <strong>E-mail:</strong> {{$order->email}}
                                                     </p>
                                                 </td>
                                             </tr>
-                                           {{-- <tr>
+                                            <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>City:</strong> San Francisco, California
+                                                        <strong>Adresse:</strong> {{$order->address}}
                                                     </p>
                                                 </td>
-                                            </tr>--}}
+                                            </tr>
+                                            @if($order->message)
+                                            <hr>
+                                             <tr>
+                                                    <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
+                                                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
+                                                            <strong>message:</strong>
+                                                           
+                                                            {{$order->message}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            @endif
 
                                         </table>
                                     </td>
+                                   
                                     <td width="50%" valign="top">
+                                        <hr>
                                         <table cellpadding="0" cellspacing="0" width="100%" align="center">
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:22px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>ordre détails</strong>
+                                                        <strong>Ordre détails</strong>
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>ordre no.:</strong> {{$order->orderNumber}}
+                                                        <strong>Ordre no.:</strong> {{$order->orderNumber}}
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>ordre date :</strong> {{$order->created_at}}
+                                                        <strong>Ordre date :</strong> {{$order->created_at}}
                                                     </p>
                                                 </td>
                                             </tr>
@@ -349,8 +331,8 @@
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>Methode de paiement:</strong> {{$order->paymentMethode}}
-
+                                                        <strong>Methode de paiement:</strong>{{$order->paymentMethode}}
+                                                        
                                                     </p>
                                                 </td>
                                             </tr>
@@ -435,7 +417,7 @@
                                         <table cellpadding="0" cellspacing="0" width="100%" align="center">
  
                                             <tr>
-                                               <td width="50%" valign="top">
+                                                <td width="50%" valign="top">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:3px 0;color:#3a3d45;text-align:left;">
                                                         <strong>VAT / TAX</strong>
                                                     </p>
@@ -475,26 +457,7 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <td style="padding-top:20px;">
-
-                            <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
-                                <tr>
-                                    <td>
-                                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;padding:0;color:#484848;text-align:center;">
-                                            Payments should be made within 30 days with one of the options below, or you can enter any note here if necessary, you have much space:
-                                        </p>
-                                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#484848;text-align:center;">
-                                            <strong>Payment Methods:</strong> Paiement cash a la livraison
-                                            <br />
-                                            
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </td>
-                    </tr>
+    
 
                     <tr>
                         <td height="25"></td>
@@ -506,16 +469,11 @@
                 <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
                     <tr>
                         <td style="padding:25px 0;">
-                            <p style="font-family:sans-serif;font-size:14px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:20px;padding:0;color:#3a3d45;text-align:center;">
-                                THANK YOU VERY MUCH FOR CHOOSING OUR PRODUCT
-                            </p>
-                            <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;padding:0;color:#aaaaaa;text-align:center;">
-                                You are receiving this because you are a current subscriber, <br />or have bought from our website.
-                            </p>
+                           
                             <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;padding:0;color:#3a3d45;text-align:center;">
-                                <a style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;" href="#">Subscribe</a> |
-                                <a style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;" href="#">Unsubscribe</a> |
-                                <a style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;" href="#">Forward</a>
+                            <a style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;" href="{{route('home')}}" target="_blank">site</a> |
+                                <a style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;" href="https://www.facebook.com/" target="_blank">facebook</a> |
+                                <a style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;" href="https://www.instagram.com/" target="_blank">instagram</a>
                             </p>
                         </td>
                     </tr>
@@ -525,7 +483,8 @@
         </tr>
     </table>
 
-    <script src="js/jquery.min.js"></script>
+  {{-- <script src="js/jquery.min.js"></script>
     <script src="js/jquery.include.js"></script>
+    --}} 
 </body>
 </html>

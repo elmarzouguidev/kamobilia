@@ -6,3 +6,5 @@
     <script src="{{asset('js/jquery.ion.rangeSlider.js')}}"></script>
     <script src="{{asset('js/jquery.isotope.pkgd.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
+
+    @yield('javascript')

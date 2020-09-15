@@ -219,7 +219,7 @@
                                             Invoice
                                         </p>
                                         <p style="font-family:sans-serif;font-size:12px;font-weight:normal;text-transform:uppercase;margin-top:0;margin-bottom:0;color:#484848;text-align:right;">
-                                            {{$order->orderNumber}}
+                                            WEB8974635
                                         </p>
                                     </td>
                                 </tr>
@@ -258,8 +258,8 @@
                                             Dear costumer, your payment for your online order placed on Mobel Furniture Store order and has been approved order reference number: <strong>WEB8974635</strong>.
                                             Please note that we will appear on your card statement. To get further payment support for your purchase, please sign-up
                                             using your email address at
-                                            <a href="{{route('home')}}" style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;">
-                                                Kamobilia Store
+                                            <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;">
+                                                Mobel Furniture Store
                                             </a>
                                         </p>
                                     </td>
@@ -279,21 +279,21 @@
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:22px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>info</strong>
+                                                        <strong>Shipping info</strong>
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>nom complet:</strong> {{$order->nom}} {{$order->prenom}}
+                                                        <strong>Name:</strong> {{$order->nom}} {{$order->prenom}}
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>téléphone:</strong> {{$order->tele}}
+                                                        <strong>Phone:</strong> {{$order->tele}}
                                                     </p>
                                                 </td>
                                             </tr>
@@ -307,7 +307,7 @@
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>adresse:</strong> {{$order->address}}
+                                                        <strong>Address:</strong> {{$order->address}}
                                                     </p>
                                                 </td>
                                             </tr>
@@ -326,21 +326,21 @@
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:22px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>ordre détails</strong>
+                                                        <strong>Order details</strong>
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>ordre no.:</strong> {{$order->orderNumber}}
+                                                        <strong>Order no.:</strong> {{$order->orderNumber}}
                                                     </p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>ordre date :</strong> {{$order->created_at}}
+                                                        <strong>Order date :</strong> {{$order->created_at}}
                                                     </p>
                                                 </td>
                                             </tr>
@@ -349,7 +349,7 @@
                                             <tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
-                                                        <strong>Methode de paiement:</strong> {{$order->paymentMethode}}
+                                                        <strong>order type:</strong> Paiement cash a la livraison
 
                                                     </p>
                                                 </td>
@@ -376,17 +376,17 @@
                                     <tr class="product-header">
                                         <td width="180" valign="middle" style="background-color:#f7f7f7;width:180px;">
                                             <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:left;">
-                                                Produit
+                                                Product
                                             </p>
                                         </td>
                                         <td valign="middle" style="background-color:#f7f7f7;">
                                             <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:left;">
-                                                Quantité
+                                                Quantity
                                             </p>
                                         </td>
                                         <td valign="middle" align="right" style="background-color:#f7f7f7;">
                                             <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:right;">
-                                                Prix
+                                                Price
                                             </p>
                                         </td>
                                     </tr>
@@ -430,12 +430,12 @@
 
                             <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
 
-                                {{--<tr>
+                                <tr>
                                     <td style="padding-bottom:20px;">
                                         <table cellpadding="0" cellspacing="0" width="100%" align="center">
  
                                             <tr>
-                                               <td width="50%" valign="top">
+                                                <td width="50%" valign="top">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:3px 0;color:#3a3d45;text-align:left;">
                                                         <strong>VAT / TAX</strong>
                                                     </p>
@@ -448,7 +448,7 @@
                                             </tr>
                                         </table>
                                     </td>
-                                </tr>--}}
+                                </tr>
 
                                 <tr>
                                     <td style="padding-top:20px; border-top:1px solid #dddddd">
@@ -456,12 +456,12 @@
                                             <tr>
                                                 <td width="50%" valign="top">
                                                     <p style="font-family:sans-serif;font-size:28px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#3a3d45;text-align:left;">
-                                                        <strong>le prix total</strong>
+                                                        <strong>Total price</strong>
                                                     </p>
                                                 </td>
                                                 <td width="50%" valign="top">
                                                     <p style="font-family:sans-serif;font-size:28px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#3a3d45;text-align:right;">
-                                                        {{$order->totalPrice}} MAD
+                                                        $ 1259,00
                                                     </p>
                                                 </td>
                                             </tr>

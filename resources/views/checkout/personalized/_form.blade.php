@@ -1,9 +1,6 @@
-<div class="login-block login-block-signup">
+<div class="col-md-12">
 
-    <div class="h4">Paiement cash a la livraison
-         {{--<a href="javascript:void(0);" class="btn btn-main btn-xs btn-login pull-right">Log in</a>--}}
-    </div>
-
+    <div class="white-block">
     <hr/>
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -14,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form method="post" action="{{route('checkout.delivery',$product->slug)}}" class="myForm" enctype="multipart/form-data">
+    <form method="post" action="{{route('checkout.perso',$product->slug)}}" class="myForm" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-8 form-creditdilevry">
@@ -28,26 +25,31 @@
                       <input type="text" name="prenom" class="form-control prenom" value="{{old('prenom')}}" placeholder="prénom" />
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="form-group">
                       <input type="email" name="email" class="form-control prenom" value="{{old('email')}}" placeholder="email" />
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="hidden" name="product" value="{{$product->slug}}" readonly>
-                        <input type="hidden" name="totalPriceer" id="totalPriceer" value="" readonly>
-
-                        <input type="text" name="tele" class="form-control tele" value="{{old('tele')}}" placeholder="téléphone" />
+                      <input type="text" name="tele" class="form-control prenom" value="{{old('tele')}}" placeholder="Numéro téléphone" />
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" name="address" class="form-control tele" value="{{old('address')}}" placeholder="address" />
+                      <input type="text" name="address" class="form-control prenom" value="{{old('address')}}" placeholder="address" />
                     </div>
                 </div>
-      
+                <input type="hidden" name="product" value="{{$product->slug}}" readonly>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="messager">décrivez votre besoin </label>
+                        <textarea class="form-control" id="messager" name="message" rows="3">{{old('message')}}</textarea>
+                    </div>
+                </div>
+                  
             </div>
             
             <div class="col-md-12">
@@ -68,4 +70,5 @@
 
         </div>
     </form>
-</div> 
+</div>
+</div>

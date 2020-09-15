@@ -1,6 +1,6 @@
 <div class="login-block login-block-signup">
 
-    <div class="h4">Paiement cash a la livraison
+    <div class="h4">Paiement Credit par etablissement de credit
          {{--<a href="javascript:void(0);" class="btn btn-main btn-xs btn-login pull-right">Log in</a>--}}
     </div>
 
@@ -14,7 +14,7 @@
             </ul>
         </div>
     @endif
-    <form method="post" action="{{route('checkout.delivery',$product->slug)}}" class="myForm" enctype="multipart/form-data">
+    <form method="post" action="{{route('checkout.banque',$product->slug)}}" class="myForm" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-8 form-creditdilevry">
@@ -37,8 +37,6 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <input type="hidden" name="product" value="{{$product->slug}}" readonly>
-                        <input type="hidden" name="totalPriceer" id="totalPriceer" value="" readonly>
-
                         <input type="text" name="tele" class="form-control tele" value="{{old('tele')}}" placeholder="téléphone" />
                     </div>
                 </div>
@@ -47,7 +45,14 @@
                         <input type="text" name="address" class="form-control tele" value="{{old('address')}}" placeholder="address" />
                     </div>
                 </div>
-      
+                <div class="col-md-12">
+                    <div class="form-group">
+                    {{--<input type="text" name="cartnational" class="form-control cartNational" value="{{old('cartnational')}}" placeholder="carte national code" />--}}
+                    <label for="cartN">Cart National (pdf,docx,jpeg,png,jpg,gif) max 2mb</label>
+                    <input type="file" name="cartnational" class="form-control-file" id="cartN">
+                    </div>
+                </div>
+                  
             </div>
             
             <div class="col-md-12">

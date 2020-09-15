@@ -13,12 +13,12 @@
         </span>
         <span class="checkbox">
             <input type="radio" class="tocheck"  id="creditBanque" name="paymentType">
-            <label for="creditBanque"><a href="{{route('checkout.delivery',$product->slug)}}">Paiement Credit par etablissement de credit</a></label>
+            <label for="creditBanque"><a href="{{route('checkout.banque',$product->slug)}}">Paiement Credit par etablissement de credit</a></label>
             
         </span>
         <span class="checkbox">
             <input type="radio" class="tocheck" id="creditdirect" name="paymentType">
-            <label for="creditdirect"><a href="{{route('checkout.delivery',$product->slug)}}">Paiement a credit par cheque directe a la societe</a></label>
+            <label for="creditdirect"><a href="{{route('checkout.direct',$product->slug)}}">Paiement a credit par cheque directe a la societe</a></label>
             
         </span>
 
