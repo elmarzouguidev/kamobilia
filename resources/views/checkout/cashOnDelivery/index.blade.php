@@ -19,17 +19,17 @@
          ele.attachEvent('onsubmit', calculatePrice);            //Old IE
       }*/
       function calculatePrice(){
-         var productPrice = document.getElementById("productPrice").value;
+         let productPrice = document.getElementById("productPrice").value;
      // console.log(productPrice);
-         var clientPrice = parseInt(document.getElementById("surfface").value);
+         let clientPrice = parseInt(document.getElementById("surfface").value);
         // console.log(clientPrice);
          let totalPrice = productPrice * clientPrice;
-         var alpha =  document.getElementById("totalpricer").innerText = totalPrice+" MAD";
+         let alpha =  document.getElementById("totalpricer").innerText = totalPrice+" MAD";
        // console.log(alpha);
 
        let formPrice = document.getElementById('totalPriceer');
        formPrice.value = totalPrice;
-         console.log(formPrice);
+        // console.log(formPrice);
       }
 
    </script>

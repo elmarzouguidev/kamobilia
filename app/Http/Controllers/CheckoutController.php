@@ -52,6 +52,7 @@ class CheckoutController extends Controller
         $order->address = $request->address;
         // $order->message = $request->message;
         /**************************************************** */
+        
         $order->paymentMethode = "cashOnDelivery";
         $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
         $order->productName = $product->name;
@@ -174,7 +175,8 @@ class CheckoutController extends Controller
             // 'ville' => 'nullable|string',
             'address' => 'required|string',
             // 'message' => 'nullable|string',
-            'product' => 'required|alpha_dash|string'
+            'product' => 'required|alpha_dash|string',
+            'totalPriceer'=>'nullable|numeric'
 
         ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
@@ -192,6 +194,7 @@ class CheckoutController extends Controller
         $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
         $order->productName = $product->name;
         $order->productQte = 1;
+        $order->totalPrice = $request->totalPriceer;
         $order->productCategory = $product->category->name;
         $order->productType = $product->personalized;
         $order->status = "pending";
@@ -236,7 +239,8 @@ class CheckoutController extends Controller
             // 'ville' => 'nullable|string',
             //'address' => 'required|string',
             'message' => 'required|string',
-            'product' => 'required|alpha_dash|string'
+            'product' => 'required|alpha_dash|string',
+            'totalPriceer'=>'nullable|numeric'
 
         ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
@@ -255,6 +259,7 @@ class CheckoutController extends Controller
         $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
         $order->productName = $product->name;
         $order->productQte = 1;
+        $order->totalPrice = $request->totalPriceer;
         $order->productCategory = $product->category->name;
         $order->productType = $product->personalized;
         $order->status = "pending";

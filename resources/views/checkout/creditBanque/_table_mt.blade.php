@@ -70,7 +70,15 @@
                                 <div class="form-group">
                                     <label for="surfface">entere votre superficie en m²</label>
                                     <input required type="hidden" name="productPrice" id="productPrice" value="{{$product->prix}}" />
-                                    <input required type="number" name="surfface" id="surfface" class="form-control" value="{{old('surfface')}}" placeholder="entere votre superficie " />
+                                    <input required 
+                                    type="number" 
+                                    name="surfface" 
+                                    id="surfface" 
+                                    class="form-control"
+                                    value="{{old('surfface')}}" 
+                                    placeholder="entere votre superficie"
+                                    min="1"
+                                     />
                                 </div>
                             </div>
                         </div>

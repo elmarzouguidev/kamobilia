@@ -37,6 +37,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <input type="hidden" name="product" value="{{$product->slug}}" readonly>
+                        <input type="hidden" name="totalPriceer" id="totalPriceer" value="" readonly>
                         <input type="text" name="tele" class="form-control tele" value="{{old('tele')}}" placeholder="téléphone" />
                     </div>
                 </div>

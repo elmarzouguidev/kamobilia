@@ -61,7 +61,7 @@
         <div class="cart-block cart-block-footer clearfix">
           
             <div>
-                <form method="post" class="myForm" onsubmit="event.preventDefault(); calculatePrice();">
+                <form method="post"class="myForm" onsubmit="event.preventDefault(); calculatePrice();">
                     @csrf
                     <div class="row">
                         <div class="col-md-6 form-creditdilevry">

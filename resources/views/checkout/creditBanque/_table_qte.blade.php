@@ -8,11 +8,11 @@
         <div>
             <span>&nbsp;</span>
         </div>
-        {{--<div>
+        <div>
             <span>Quantité</span>
-        </div>--}}
+        </div>
         <div class="text-right">
-            <span>Prix de m²</span>
+            <span>Prix</span>
         </div>
     </div>
 
@@ -31,8 +31,11 @@
                 <strong>1</strong>
                 
             </div>--}}
+            <div class="quantity">
+                <input type="number" value="2" class="form-control form-quantity" />
+            </div>
             <div class="price">
-                <span class="final h6"> {{$product->prix}} MAD</span>
+                <span class="final h3">{{$product->prix}} - MAD</span>
                {{--<span class="discount">$ 2.666</span>--}} 
             </div>
         </div>
@@ -61,28 +64,11 @@
         <div class="cart-block cart-block-footer clearfix">
           
             <div>
-                <form method="post" class="myForm" onsubmit="event.preventDefault(); calculatePrice();">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-6 form-creditdilevry">
-                        
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="surfface">entere votre superficie en m²</label>
-                                    <input required type="hidden" name="productPrice" id="productPrice" value="{{$product->prix}}" />
-                                    <input required type="number" name="surfface" id="surfface" class="form-control" value="{{old('surfface')}}" placeholder="entere votre superficie " />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-main">calculer le prix</button>
-                        </div>
-            
-                    </div>
-                </form>
+                {{-- <strong>Promo code included!</strong>--}}
             </div>
+            
             <div>
-                <div class="h2 title"  id="totalpricer">{{$product->prix}} - MAD</div>
+                <div class="h2 title">{{$product->prix}} - MAD</div>
             </div>
         </div>
     </div>

@@ -34,6 +34,7 @@
                       <input type="email" name="email" class="form-control prenom" value="{{old('email')}}" placeholder="email" />
                     </div>
                 </div>
+                <input type="hidden" name="totalPriceer" id="totalPriceer" value="" readonly>
                 <input type="hidden" name="product" value="{{$product->slug}}" readonly>
 
                {{--
