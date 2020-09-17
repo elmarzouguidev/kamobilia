@@ -25,8 +25,11 @@ class OrderMailAdmin extends Mailable
     {
         //
         $this->data = $data;
+
         $this->product = $product;
+
         if ($file) {
+
             $this->file = $file;
         }
     }
@@ -38,17 +41,18 @@ class OrderMailAdmin extends Mailable
      */
     public function build()
     {
+       // dd($this->product->personalized);
         if ($this->file) {
             return $this->from('admin@moustakbaly.ma')
                 ->subject('Kamobilia Order')
-                ->view('mails.orderConfirmedAdmin')
+                ->view($this->product->personalized ? 'mails.orderConfirmedAdminPerso':'mails.orderConfirmedAdmin')
                 ->with('order', $this->data)
                 ->with('product', $this->product)
                 ->attachFromStorage($this->file);
         }
         return $this->from('admin@moustakbaly.ma')
             ->subject('Kamobilia Order')
-            ->view('mails.orderConfirmedAdmin')
+            ->view($this->product->personalized ? 'mails.orderConfirmedAdminPerso':'mails.orderConfirmedAdmin')
             ->with('order', $this->data)
             ->with('product', $this->product);
     }

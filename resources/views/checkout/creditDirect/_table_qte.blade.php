@@ -12,7 +12,7 @@
             <span>Quantité</span>
         </div>
         <div class="text-right">
-            <span>Prix</span>
+            <span>Prix par unité</span>
         </div>
     </div>
 
@@ -31,11 +31,22 @@
                 <strong>1</strong>
                 
             </div>--}}
+            <!-----Haymacproduction.ma--->
             <div class="quantity">
-                <input type="number" value="2" class="form-control form-quantity" />
+                <input 
+                    type="number" 
+                    name="qtenumber"
+                    id="qtenumber"
+                    value="1" 
+                    min="1" 
+                    class="form-control form-quantity"
+                    onchange="event.preventDefault(); calculateQte(); console.log('uuuu');"
+                    
+                />
+            <input type="hidden" name="prodprice" id="prodprice" value="{{$product->prix}}" readonly>
             </div>
             <div class="price">
-                <span class="final h3">{{$product->prix}} - MAD</span>
+                <span class="final h4">{{$product->prix}} - MAD</span>
                {{--<span class="discount">$ 2.666</span>--}} 
             </div>
         </div>
@@ -64,11 +75,11 @@
         <div class="cart-block cart-block-footer clearfix">
           
             <div>
-                {{-- <strong>Promo code included!</strong>--}}
+                <strong>Le prix total : </strong>
             </div>
             
             <div>
-                <div class="h2 title">{{$product->prix}} - MAD</div>
+                <div class="h2 title" id="toPricer">{{$product->prix}} - MAD</div>
             </div>
         </div>
     </div>

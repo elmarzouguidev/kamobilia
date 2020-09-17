@@ -1,10 +1,16 @@
 <div class="login-block login-block-signup">
 
-    <div class="h4">Paiement cash a la livraison
+    <div class="h4">Paiement à la livraison en espèce
          {{--<a href="javascript:void(0);" class="btn btn-main btn-xs btn-login pull-right">Log in</a>--}}
+
     </div>
 
     <hr/>
+
+    @if(session()->has('error'))
+      <p style="color:red !important">{{session('error')}}</p>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -25,12 +31,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" name="prenom" class="form-control prenom" value="{{old('prenom')}}" placeholder="prénom" />
+                      <input type="text" name="prenom" class="form-control prenom" value="{{old('prenom')}}" placeholder="Prénom" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control prenom" value="{{old('email')}}" placeholder="email" />
+                      <input type="email" name="email" class="form-control prenom" value="{{old('email')}}" placeholder="E-mail" />
                     </div>
                 </div>
 
@@ -55,15 +61,15 @@
                 <span class="checkbox" >
                     <input type="checkbox" id="checkBoxId1" required>
                 <label for="checkBoxId1">
-                    I have read and accepted the 
-                    <a target="_blank" href="{{route('terms')}}">terms</a>
+                    J'ai lu et j'accepte 
+                    <a target="_blank" href="{{route('terms')}}">les conditions</a>
                 </label>
                 </span>
    
             </div>
 
             <div class="col-md-12">
-                <button type="submit" class="btn btn-main">confirmer la commande</button>
+                <button type="submit" class="btn btn-main" onclick="confirm('Est-ce que vos informations seront correctes ?')">confirmer la commande</button>
             </div>
 
         </div>

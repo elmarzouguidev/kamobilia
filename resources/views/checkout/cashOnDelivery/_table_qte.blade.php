@@ -12,7 +12,7 @@
             <span>Quantité</span>
         </div>
         <div class="text-right">
-            <span>Prix</span>
+            <span>Prix par unité</span>
         </div>
     </div>
 
@@ -46,7 +46,7 @@
             <input type="hidden" name="prodprice" id="prodprice" value="{{$product->prix}}" readonly>
             </div>
             <div class="price">
-                <span class="final h3">{{$product->prix}} - MAD</span>
+                <span class="final h4">{{$product->prix}} - MAD</span>
                {{--<span class="discount">$ 2.666</span>--}} 
             </div>
         </div>

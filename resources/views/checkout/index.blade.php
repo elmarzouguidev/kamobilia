@@ -12,11 +12,6 @@
 
 @section('javascript')
    <script>
-
-      function calculateQte(){
-         let qtenumber = parseInt(document.getElementById('qtenumber').value);
-         console.log(qtenumber);
-      }
-
+      
    </script>
 @endsection

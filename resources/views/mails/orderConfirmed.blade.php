@@ -256,7 +256,7 @@
                                            Votre commande est terminée !
 
                                         </p>
-                                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;color:#464951;text-align:left;">
+                                        {{--<p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;color:#464951;text-align:left;">
                                             Dear costumer, your 
                                             payment for your online order 
                                             placed on Mobel Furniture Store order
@@ -269,7 +269,7 @@
                                             <a href="{{route('home')}}" target="_blank" style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;color:#3a3d45;text-decoration:underline;">
                                                 Kamobilia
                                             </a>
-                                        </p>
+                                        </p>--}}
                                     </td>
                                 </tr>
                             </table>
@@ -521,9 +521,9 @@
                             <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
                                 <tr>
                                     <td>
-                                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;padding:0;color:#484848;text-align:center;">
+                                        {{--<p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;padding:0;color:#484848;text-align:center;">
                                             Payments should be made within 30 days with one of the options below, or you can enter any note here if necessary, you have much space:
-                                        </p>
+                                        </p>--}}
                                         <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#484848;text-align:center;">
                                             <strong>Methode de paiement:</strong> {{$order->paymentMethode}}
                                             <br />

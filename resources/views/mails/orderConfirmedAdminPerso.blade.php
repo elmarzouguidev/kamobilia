@@ -253,14 +253,14 @@
                                     <td colspan="2">
                                         <p style="font-family:sans-serif;font-size:22px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:10px;color:#464951;text-align:left;">
                                             
-                                            Nouvelle commande 
+                                            Nouvelle commande : {{$product->name}}
 
                                         </p>
-                                        @if($order->message)
+                                        
                                             <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;color:#464951;text-align:left;">
                                             {{$order->message}}
                                             </p>
-                                        @endif
+                                       
                                     </td>
                                 </tr>
                             </table>
@@ -310,7 +310,7 @@
                                                     </p>
                                                 </td>
                                             </tr>
-                                           {{-- <tr>
+                                            {{--<tr>
                                                 <td style="padding-top:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f5;">
                                                     <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#3a3d45;text-align:left;">
                                                         <strong>City:</strong> San Francisco, California
@@ -368,165 +368,7 @@
                         </td>
                     </tr>
 
-                    <!-- ========= Booking details ========= -->
-
-                    <tr>
-                        <td style="background-color:#ffffff;">
-
-                            <table cellpadding="0" cellspacing="0" width="100%" align="center">
-
-                                <tbody>
-
-                                    <!----------- product table header ----------->
-
-                                    <tr class="product-header">
-                                        <td width="180" valign="middle" style="background-color:#f7f7f7;width:180px;">
-                                            <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:left;">
-                                               Produit
-                                            </p>
-                                        </td>
-                                        <td width="180" valign="middle" style="background-color:#f7f7f7;width:180px;">
-                                            <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:left;">
-                                               
-                                            </p>
-                                        </td>
-                                        @if($product->superficie)
-                                        <td valign="middle" style="background-color:#f7f7f7;">
-                                            <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:left;">
-                                                Total m² 
-                                            </p>
-                                        </td>
-                                        @else
-                                        <td valign="middle" style="background-color:#f7f7f7;">
-                                            <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:left;">
-                                                Quantité
-                                            </p>
-                                        </td>
-                                        @endif
-                                        <td valign="middle" align="right" style="background-color:#f7f7f7;">
-                                            <p style="font-family:sans-serif;font-size:10px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:right;">
-                                                Prix Total
-                                            </p>
-                                        </td>
-                                    </tr>
-
-                                    <!--product-->
-
-                                    <tr>
-                                        <td width="200" valign="middle" class="product-image" style="width:200px;">
-                                            <a href="#" style="margin:0;padding:0;text-decoration:none;">
-                                            <img src="{{Voyager::image($product->photo)}}" alt="{{$product->name}}" width="180" />
-                                            </a>
-                                        </td>
-                                        <td width="300" valign="middle" class="product-title">
-                                            <p style="font-family:sans-serif;font-size:18px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:left;">
-                                                {{$product->name}}
-                                            </p>
-                                            <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin:0;color:#60636b;text-align:left;">
-                                                {{$product->category->name}}
-                                            </p>
-                                        </td>
-                                        <td width="100" valign="middle" class="product-price">
-                                            <p style="font-family:sans-serif;font-size:18px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:right;">
-                                                @if($product->superficie)
-                                                 {{$order->productQte}} m²
-                                                @else
-                                                 {{$order->productQte}}
-                                                @endif
-                                            </p>
-                                           
-                                        </td>
-                                        <td width="100" valign="middle" class="product-price">
-                                            <p style="font-family:sans-serif;font-size:18px;font-weight:bold;text-transform:uppercase;margin:0;color:#3a3d45;text-align:right;">
-                                                {{$order->totalPrice}} MAD
-                                            </p>
-                                           
-                                        </td>
-                                    </tr>
-
-                            
-                                </tbody>
-
-
-                            </table>
-                        </td>
-                    </tr>
-
-                    <!-- ========= Booking price ========= -->
-
-                    <tr>
-                        <td style="background-color:#f7f7f7;color:#3a3d45;padding:25px 0;" class="footer-content">
-
-                            <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
-
-                                <tr>
-                                    <td style="padding-bottom:20px;">
-                                        <table cellpadding="0" cellspacing="0" width="100%" align="center">
- 
-                                            <tr>
-                                               {{-- 
-                                                <td width="50%" valign="top">
-                                                    <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:3px 0;color:#3a3d45;text-align:left;">
-                                                        <strong>VAT / TAX</strong>
-                                                    </p>
-                                                </td>
-                                                <td width="50%" valign="top">
-                                                    <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:3px 0;color:#3a3d45;text-align:right;">
-                                                        $ 59,00
-                                                    </p>
-                                                </td>
-                                                --}}
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding-top:20px; border-top:1px solid #dddddd">
-                                        <table cellpadding="0" cellspacing="0" width="100%" align="center">
-                                            <tr>
-                                                <td width="50%" valign="top">
-                                                    <p style="font-family:sans-serif;font-size:28px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#3a3d45;text-align:left;">
-                                                        <strong>le prix total</strong>
-                                                    </p>
-                                                </td>
-                                                <td width="50%" valign="top">
-                                                    <p style="font-family:sans-serif;font-size:28px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#3a3d45;text-align:right;">
-                                                        {{$order->totalPrice}} MAD
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                          
-                                        </table>
-                                    </td>
-                                </tr>
-
-
-                            </table>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="padding-top:20px;">
-
-                            <table cellpadding="0" cellspacing="0" class="table-mobile-small" align="center">
-                                <tr>
-                                    <td>
-                                        {{--<p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;padding:0;color:#484848;text-align:center;">
-                                            Payments should be made within 30 days with one of the options below, or you can enter any note here if necessary, you have much space:
-                                        </p>--}}
-                                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:0;padding:0;color:#484848;text-align:center;">
-                                            <strong>Methode de paiement:</strong> {{$order->paymentMethode}}
-                                            <br />
-                                            
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </td>
-                    </tr>
-
+            
                     <tr>
                         <td height="25"></td>
                     </tr>

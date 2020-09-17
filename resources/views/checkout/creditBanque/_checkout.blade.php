@@ -10,7 +10,7 @@
         <div class="clearfix">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="{{route('checkout',$product->slug)}}" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span> Back to cart</a>
+                    <a href="{{route('checkout',$product->slug)}}" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span>{{$product->name}}</a>
                 </div>
              
             </div>
@@ -26,9 +26,6 @@
 
             <div class="note-block">
                 <div class="row">
-
-                   
-             
                    @include('checkout.creditBanque._action')
                 </div>
             </div>

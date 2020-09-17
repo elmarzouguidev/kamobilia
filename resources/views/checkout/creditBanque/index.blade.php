@@ -12,12 +12,7 @@
 
 @section('javascript')
    <script>
-      /*var form = document.getElementById("calculatForm");
-      if(ele.addEventListener){
-         ele.addEventListener("submit", calculatePrice, false);  //Modern browsers
-      }else if(ele.attachEvent){
-         ele.attachEvent('onsubmit', calculatePrice);            //Old IE
-      }*/
+ 
       function calculatePrice(){
          let productPrice = document.getElementById("productPrice").value;
      // console.log(productPrice);
@@ -29,7 +24,32 @@
 
        let formPrice = document.getElementById('totalPriceer');
        formPrice.value = totalPrice;
+
+       let toQtee = document.getElementById('totalQtee');
+         toQtee.value = clientPrice;
         // console.log(formPrice);
+      }
+
+      function calculateQte(){
+
+         /****Haymacproduction Elmarzougui Abdelghafour ***/
+         let qtenumber = parseInt(document.getElementById('qtenumber').value);
+
+         let prodpricer = parseInt(document.getElementById('prodprice').value);
+
+         let allPrice = (qtenumber * prodpricer);
+
+         let toPricer = document.getElementById("toPricer").innerText = allPrice+" MAD";
+
+         //console.log(qtenumber);
+         //console.log(prodpricer);
+        // console.log(allPrice);
+
+         let toPrice = document.getElementById('totalPriceer');
+         toPrice.value = allPrice;
+
+         let toQtee = document.getElementById('totalQtee');
+         toQtee.value = qtenumber;
       }
 
    </script>

@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
+        "propaganistas/laravel-phone": "^4.2",
         "spatie/laravel-query-builder": "^3.0",
         "tcg/voyager": "^1.4",
         "voyager-excel": "dev-master"

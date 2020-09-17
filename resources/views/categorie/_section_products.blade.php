@@ -78,9 +78,12 @@
                                         <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                     </span>
                                 </div>
-                                <div class="btn btn-add">
-                                    <i class="icon icon-cart"></i>
-                                </div>
+                                <a href="{{route('checkout',$product->slug)}}" class="btn btn-add">
+                                    
+                                    <i class="icon icon-cart">
+                                        
+                                    </i>
+                                </a>
                                 <div class="figure-grid">
                                     @if($product->inHome)
                                         <span class="label label-warning">Nouveau</span>

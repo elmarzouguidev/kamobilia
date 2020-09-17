@@ -36,7 +36,7 @@ class OrderMail extends Mailable
 
         return $this->from('admin@moustakbaly.ma')
             ->subject('Kamobilia Order')
-            ->view('mails.orderConfirmed')
+            ->view($this->product->personalized ? 'mails.orderConfirmedPerso':'mails.orderConfirmed')
             ->with('order', $this->data)
             ->with('product', $this->product);
     }

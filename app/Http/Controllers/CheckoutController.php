@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BanqRequest;
+use App\Http\Requests\CodRequest;
+use App\Http\Requests\SteRequest;
 use App\Mail\OrderMail;
 use App\Mail\OrderMailAdmin;
 use App\Order;
@@ -35,10 +38,10 @@ class CheckoutController extends Controller
             'prenom' => 'required|string',
             // 'cartnational' => 'required|file|mimes:pdf,docx,jpeg,png,jpg|max:2048',
             'email' => 'required|email',
-            'tele' => 'required|numeric',
+            'tele' => 'required|phone:MA|numeric',
             // 'ville' => 'nullable|string',
             'address' => 'required|string',
-            // 'message' => 'nullable|string',
+            'message' => 'required|string',
             'product' => 'required|alpha_dash|string'
 
         ]);
@@ -51,11 +54,11 @@ class CheckoutController extends Controller
         $order->tele = $request->tele;
         //  $order->ville = $request->ville;
         $order->address = $request->address;
-        // $order->message = $request->message;
+        $order->message = $request->message;
         /**************************************************** */
 
-        $order->paymentMethode = "cashOnDelivery";
-        $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
+        $order->paymentMethode = "Paiement à la livraison en espèce";
+        $order->orderNumber = 'CMD-' . strtoupper(uniqid());
         $order->productName = $product->name;
         $order->productQte = 1;
         $order->productCategory = $product->category->name;
@@ -74,7 +77,8 @@ class CheckoutController extends Controller
             return view('orders.checkoutPerso.ok', compact('product', 'order'));
         }
 
-        return view('orders.cashOnDelivery.no');
+        return redirect()->route('checkout.perso',$product->slug)->with('error','un probleme est survenu lors de votre demande');
+
     }
 
     public function cashOnDelivery($slug)
@@ -89,25 +93,10 @@ class CheckoutController extends Controller
         return redirect()->route('home');
     }
 
-    public function cashOnDeliveryPost(Request $request)
+    public function cashOnDeliveryPost(CodRequest $request)
     {
        // dd($request->all());
 
-        $request->validate([
-
-            'nom' => 'required|string',
-            'prenom' => 'required|string',
-            // 'cartnational' => 'required|file|mimes:pdf,docx,jpeg,png,jpg|max:2048',
-            'email' => 'required|email',
-            'tele' => 'required|numeric',
-            // 'ville' => 'nullable|string',
-            'address' => 'required|string',
-            // 'message' => 'nullable|string',
-            'product' => 'required|alpha_dash|string',
-            'totalPriceer' => 'nullable|numeric',
-            'totalQtee' => 'nullable|numeric|min:1',
-
-        ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
         $order = new Order();
         $order->nom = $request->nom;
@@ -120,7 +109,7 @@ class CheckoutController extends Controller
         // $order->message = $request->message;
         /**************************************************** */
         $order->paymentMethode = "Paiement à la livraison en espèce";
-        $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
+        $order->orderNumber = 'CMD-' . strtoupper(uniqid());
         $order->productName = $product->name;
         $order->productQte = $request->totalQtee;
         $order->totalPrice = $request->totalPriceer;
@@ -133,23 +122,19 @@ class CheckoutController extends Controller
 
             // $path = $request->file('cartnational')->store('CNIEFile');
             //dd($path);
-           // Mail::to('abdo@gmail.com')->send(new OrderMailAdmin($order, $product));
             Mail::to($request->email)->send(new OrderMail($order, $product));
-
+            Mail::to('abdo@gmail.com')->send(new OrderMailAdmin($order, $product));
+        
             return view('orders.cashOnDelivery.ok', compact('product', 'order'));
         }
 
-        return view('orders.cashOnDelivery.no');
+        return redirect()->route('checkout.delivery',$product->slug)->with('error','un probleme est survenu lors de votre demande');
     }
-
 
     public function orderConfirmed()
     {
         return view('orders.cashOnDelivery.ok', compact('product', 'order'));
     }
-
-
-
 
     public function creditBanque($slug)
     {
@@ -163,24 +148,9 @@ class CheckoutController extends Controller
         return redirect()->route('home');
     }
 
-    public function creditBanquePost(Request $request)
+    public function creditBanquePost(BanqRequest $request)
     {
         //dd($request->all());
-        $request->validate([
-
-            'nom' => 'required|string',
-            'prenom' => 'required|string',
-            'cartnational' => 'required|file|mimes:pdf,docx,jpeg,png,jpg|max:2048',
-            'email' => 'required|email',
-            'tele' => 'required|numeric',
-            // 'ville' => 'nullable|string',
-            'address' => 'required|string',
-            // 'message' => 'nullable|string',
-            'product' => 'required|alpha_dash|string',
-            'totalPriceer' => 'nullable|numeric',
-            'totalQtee' => 'nullable|numeric'
-
-        ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
         $order = new Order();
         $order->nom = $request->nom;
@@ -193,7 +163,7 @@ class CheckoutController extends Controller
         // $order->message = $request->message;
         /**************************************************** */
         $order->paymentMethode = "creditBanque";
-        $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
+        $order->orderNumber = 'CMD-' . strtoupper(uniqid());
         $order->productName = $product->name;
         $order->productQte = $request->totalQtee;
         $order->totalPrice = $request->totalPriceer;
@@ -228,41 +198,26 @@ class CheckoutController extends Controller
         return redirect()->route('home');
     }
 
-    public function creditDirectPost(Request $request)
+    public function creditDirectPost(SteRequest $request)
     {
         //dd($request->all());
-        $request->validate([
-
-            'nom' => 'required|string',
-            'prenom' => 'required|string',
-            'cartnational' => 'required|file|mimes:pdf,docx,jpeg,png,jpg|max:2048',
-            'email' => 'required|email',
-            //'tele' => 'required|numeric',
-            // 'ville' => 'nullable|string',
-            //'address' => 'required|string',
-            'message' => 'required|string',
-            'product' => 'required|alpha_dash|string',
-            'totalPriceer' => 'nullable|numeric',
-            'totalQtee' => 'nullable|numeric',
-
-        ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
-        $order = new Order();
+        $order   = new Order();
         $order->nom = $request->nom;
         $order->prenom = $request->prenom;
         //$order->cartnational = $request->cartnational;
         $order->email = $request->email;
-        // $order->tele = $request->tele;
+        $order->tele = $request->tele;
         //  $order->ville = $request->ville;
         //$order->address = $request->address;
         $order->message = $request->message;
         /**************************************************** */
-        $order->paymentMethode = "Paiement a credit par cheque directe a la societe";
+        $order->paymentMethode = "Paiement a credit par cheque directe a la société";
 
-        $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
+        $order->orderNumber = 'CMD-' . strtoupper(uniqid());
         $order->productName = $product->name;
-        $order->productQte = $request->totalQtee;
-        $order->totalPrice = $request->totalPriceer;
+        $order->productQte  = $request->totalQtee;
+        $order->totalPrice  = $request->totalPriceer;
         $order->productCategory = $product->category->name;
         $order->productType = $product->personalized;
         $order->status = "pending";

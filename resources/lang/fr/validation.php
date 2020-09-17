@@ -11,7 +11,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages.
     |
     */
-
+    'phone'           => 'vous devez entrer un numéro de mobile valide',
     'accepted'        => 'Le champ :attribute doit être accepté.',
     'active_url'      => "Le champ :attribute n'est pas une URL valide.",
     'after'           => 'Le champ :attribute doit être une date postérieure au :date.',

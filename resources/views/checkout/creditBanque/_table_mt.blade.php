@@ -1,3 +1,5 @@
+
+{{-- Powored by Elmarzougui Abdelghafour --}}
 <div class="cart-wrapper">
     <!--cart header -->
 
@@ -61,7 +63,7 @@
         <div class="cart-block cart-block-footer clearfix">
           
             <div>
-                <form method="post" class="myForm" onsubmit="event.preventDefault(); calculatePrice();">
+                <form method="post" class="myForm">
                     @csrf
                     <div class="row">
                         <div class="col-md-6 form-creditdilevry">
@@ -72,20 +74,17 @@
                                     <input required type="hidden" name="productPrice" id="productPrice" value="{{$product->prix}}" />
                                     <input required 
                                     type="number" 
+                                    min="1"
                                     name="surfface" 
                                     id="surfface" 
-                                    class="form-control"
+                                    class="form-control" 
                                     value="{{old('surfface')}}" 
-                                    placeholder="entere votre superficie"
-                                    min="1"
+                                    placeholder="entere votre superficie "
+                                    onchange="event.preventDefault(); calculatePrice();"
                                      />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-main">calculer le prix</button>
-                        </div>
-            
                     </div>
                 </form>
             </div>
