@@ -14,7 +14,7 @@
                 <div id="filters" class="filters">
                     <!--Price-->
                     <div class="filter-box active">
-                        <div class="title">Price</div>
+                        <div class="title">Prix</div>
                         <div class="filter-content">
                             <div class="price-filter">
                                 <input type="text" id="range-price-slider" value="" name="range" />
@@ -25,7 +25,7 @@
                     
                     <div class="filter-box active">
                         <div class="title">
-                            catégories
+                            Catégories
                         </div>
                         <div class="filter-content">
                             <span class="checkbox">
