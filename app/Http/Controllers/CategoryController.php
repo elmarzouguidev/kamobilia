@@ -14,7 +14,8 @@ class CategoryController extends Controller
 
         $products = Product::orderBy('inHome','desc')->get();
 
-        return view('categorie.index',compact('products'));
+        return view('products_filters.index',compact('products'));
+       // return view('categorie.index',compact('products'));
     }
 
     public function show($slug){

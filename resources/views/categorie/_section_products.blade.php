@@ -31,7 +31,7 @@
                         <div class="filter-content">
                             @foreach($categories as $cate)
                                 <span class="checkbox">
-                                    <input type="radio" id="category{{$cate->id}}" name="discountPrice" checked="checked">
+                                    <input type="radio" id="{{$cate->name}}" name="group-type" value=".{{$cate->name}}" checked="checked">
                                     <label for="category{{$cate->id}}">{{$cate->name}}</label>
                                 </span>
                             @endforeach

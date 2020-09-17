@@ -627,10 +627,10 @@
         $("#range-price-slider").ionRangeSlider({
             type: "double",
             min: 0,
-            max: 4000,
-            from: 150,
-            to: 3800,
-            prefix: "$",
+            max: 8000,
+            from: 2000,
+            to: 6000,
+            prefix: "MAD",
             onChange: function (data) {
               //  console.log(data);
                 $(".item").each(function () {

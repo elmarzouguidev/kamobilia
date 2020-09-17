@@ -24,7 +24,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['home.*','categorie.*','promos.*','news.*'], function ($view) {
+        View::composer(['home.*','categorie.*','products_filters.*','promos.*','news.*'], function ($view) {
             $view->with('categories', Category::all());
         });
     }
