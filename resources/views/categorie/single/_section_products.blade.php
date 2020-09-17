@@ -1,5 +1,3 @@
-<!-- ======================== Products ======================== -->
-
 <section class="products">
     <div class="container">
 
@@ -12,7 +10,8 @@
             <!-- === product-filters === -->
 
             <div class="col-md-3 col-xs-12">
-                <div class="filters">
+
+                <div id="filters" class="filters">
                     <!--Price-->
                     <div class="filter-box active">
                         <div class="title">Price</div>
@@ -22,28 +21,27 @@
                             </div>
                         </div>
                     </div>
-     
                     <!--Discount-->
+                    
                     <div class="filter-box active">
                         <div class="title">
-                            Catégories
+                            catégories
                         </div>
                         <div class="filter-content">
-                            @foreach($categories as $cate)
+                            <span class="checkbox">
+                                <input type="radio" name="group-type" id="category-all" value="" checked="checked">
+                                <label for="category-all">Tous <i>({{$products->count()}})</i></label>
+                            </span>
+                            {{--@foreach($categories as $cat)
                                 <span class="checkbox">
-                                    <input type="radio" id="category{{$cate->id}}" name="discountPrice" checked="checked">
-                                    <label for="category{{$cate->id}}">{{$cate->name}}</label>
+                                    <input type="radio" name="group-type" id="{{$cat->slug}}" value=".{{$cat->slug}}">
+                                    <label for="{{$cat->slug}}">{{$cat->name}} <i>({{$cat->count()}})</i></label>
                                 </span>
-                            @endforeach
-                        
+                            @endforeach--}}
+
                         </div>
-                    </div> <!--/filter-box-->
-        
-                   {{--
-                    <div class="toggle-filters-close btn btn-main">
-                        Update search
                     </div>
-                    --}}
+                    
 
                 </div> <!--/filters-->
             </div>
@@ -53,10 +51,24 @@
             <div class="col-md-9 col-xs-12">
 
                 <div class="sort-bar clearfix">
-
+                    <div class="sort-results pull-left">
+                        <!--Showing result per page-->
+                        <select>
+                            <option value="1">10</option>
+                            <option value="2">50</option>
+                            <option value="3">100</option>
+                            <option value="4">All</option>
+                        </select>
+                        <!--Items counter-->
+                        <span>Showing all <strong>50</strong> of <strong>3,250</strong> items</span>
+                    </div>
                     <!--Sort options-->
                     <div class="sort-options pull-right">
-               
+                        <span class="hidden-xs">Sort by</span>
+                        <select id="sort-price">
+                            <option data-option-value="asc">Price: lowest</option>
+                            <option data-option-value="desc">Price: highest</option>
+                        </select>
                         <!--Grid-list view-->
                         <span class="grid-list">
                             <a href=""><i class="fa fa-th-large"></i></a>
@@ -66,9 +78,11 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div id="products" class="row">
+
+                    <!-- === product-item === -->
                     @foreach($products as $product)
-                        <div class="col-md-6 col-xs-6">
+                        <div class="col-md-6 col-xs-6 item price-discount {{$product->category->slug}} ">
                             <article>
                                 <div class="info">
                                     <span class="add-favorite">
@@ -78,9 +92,12 @@
                                         <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                     </span>
                                 </div>
-                                <div class="btn btn-add">
-                                    <i class="icon icon-cart"></i>
-                                </div>
+                                <a href="{{route('checkout',$product->slug)}}" class="btn btn-add">
+                                    
+                                    <i class="icon icon-cart">
+                                        
+                                    </i>
+                                </a>
                                 <div class="figure-grid">
                                     @if($product->inHome)
                                         <span class="label label-warning">Nouveau</span>
@@ -92,7 +109,7 @@
                                     </div>
                                     <div class="text">
                                         <h2 class="title h4"><a href="{{route('products.single',$product->slug)}}">{{$product->name}}</a></h2>
-                                        <sup>{{$product->prix}} MAD</sup>
+                                        <sup class="price">{{$product->prix}} MAD</sup>
                                         <span class="description clearfix">
                                             {{$product->excerpt}}
                                         </span>
@@ -101,27 +118,8 @@
                             </article>
                         </div>
                     @endforeach
+
                 </div><!--/row-->
-                <!--Pagination-->
-                <div class="pagination-wrapper">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
 
             </div> <!--/product items-->
 
