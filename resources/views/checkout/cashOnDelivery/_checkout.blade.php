@@ -1,3 +1,5 @@
+
+{{-- Powored by Elmarzougui Abdelghafour --}}
 <section class="checkout">
     <div class="container">
 
@@ -27,9 +29,6 @@
 
             <div class="note-block">
                 <div class="row">
-
-                   
-             
                    @include('checkout.cashOnDelivery._action')
                 </div>
             </div>

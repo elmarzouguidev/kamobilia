@@ -26,7 +26,8 @@ class CheckoutController extends Controller
         return view('products.single.index', compact('product'));
     }
 
-    public function checkoutPerso(Request $request){
+    public function checkoutPerso(Request $request)
+    {
 
         $request->validate([
 
@@ -52,7 +53,7 @@ class CheckoutController extends Controller
         $order->address = $request->address;
         // $order->message = $request->message;
         /**************************************************** */
-        
+
         $order->paymentMethode = "cashOnDelivery";
         $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
         $order->productName = $product->name;
@@ -83,7 +84,6 @@ class CheckoutController extends Controller
         if ($product) {
 
             return view('checkout.cashOnDelivery.index', compact('product'));
-            
         }
 
         return redirect()->route('home');
@@ -91,7 +91,7 @@ class CheckoutController extends Controller
 
     public function cashOnDeliveryPost(Request $request)
     {
-        //dd($request->all());
+       // dd($request->all());
 
         $request->validate([
 
@@ -104,7 +104,8 @@ class CheckoutController extends Controller
             'address' => 'required|string',
             // 'message' => 'nullable|string',
             'product' => 'required|alpha_dash|string',
-            'totalPriceer'=>'nullable|numeric'
+            'totalPriceer' => 'nullable|numeric',
+            'totalQtee' => 'nullable|numeric|min:1',
 
         ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
@@ -118,10 +119,10 @@ class CheckoutController extends Controller
         $order->address = $request->address;
         // $order->message = $request->message;
         /**************************************************** */
-        $order->paymentMethode = "cashOnDelivery";
+        $order->paymentMethode = "Paiement à la livraison en espèce";
         $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
         $order->productName = $product->name;
-        $order->productQte = 1;
+        $order->productQte = $request->totalQtee;
         $order->totalPrice = $request->totalPriceer;
         $order->productCategory = $product->category->name;
         $order->productType = $product->personalized;
@@ -132,7 +133,7 @@ class CheckoutController extends Controller
 
             // $path = $request->file('cartnational')->store('CNIEFile');
             //dd($path);
-            Mail::to('abdo@gmail.com')->send(new OrderMailAdmin($order, $product));
+           // Mail::to('abdo@gmail.com')->send(new OrderMailAdmin($order, $product));
             Mail::to($request->email)->send(new OrderMail($order, $product));
 
             return view('orders.cashOnDelivery.ok', compact('product', 'order'));
@@ -176,14 +177,15 @@ class CheckoutController extends Controller
             'address' => 'required|string',
             // 'message' => 'nullable|string',
             'product' => 'required|alpha_dash|string',
-            'totalPriceer'=>'nullable|numeric'
+            'totalPriceer' => 'nullable|numeric',
+            'totalQtee' => 'nullable|numeric'
 
         ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
         $order = new Order();
         $order->nom = $request->nom;
         $order->prenom = $request->prenom;
-       // $order->cartnational = $request->cartnational;
+        // $order->cartnational = $request->cartnational;
         $order->email = $request->email;
         $order->tele = $request->tele;
         //  $order->ville = $request->ville;
@@ -193,7 +195,7 @@ class CheckoutController extends Controller
         $order->paymentMethode = "creditBanque";
         $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
         $order->productName = $product->name;
-        $order->productQte = 1;
+        $order->productQte = $request->totalQtee;
         $order->totalPrice = $request->totalPriceer;
         $order->productCategory = $product->category->name;
         $order->productType = $product->personalized;
@@ -240,7 +242,8 @@ class CheckoutController extends Controller
             //'address' => 'required|string',
             'message' => 'required|string',
             'product' => 'required|alpha_dash|string',
-            'totalPriceer'=>'nullable|numeric'
+            'totalPriceer' => 'nullable|numeric',
+            'totalQtee' => 'nullable|numeric',
 
         ]);
         $product = Product::whereSlug($request->product)->firstOrFail();
@@ -249,16 +252,16 @@ class CheckoutController extends Controller
         $order->prenom = $request->prenom;
         //$order->cartnational = $request->cartnational;
         $order->email = $request->email;
-       // $order->tele = $request->tele;
+        // $order->tele = $request->tele;
         //  $order->ville = $request->ville;
         //$order->address = $request->address;
         $order->message = $request->message;
         /**************************************************** */
         $order->paymentMethode = "Paiement a credit par cheque directe a la societe";
-       
+
         $order->orderNumber = 'ORDER-' . strtoupper(uniqid());
         $order->productName = $product->name;
-        $order->productQte = 1;
+        $order->productQte = $request->totalQtee;
         $order->totalPrice = $request->totalPriceer;
         $order->productCategory = $product->category->name;
         $order->productType = $product->personalized;

@@ -9,7 +9,11 @@
         <span class="checkbox">
             <input type="radio" class="tocheck" id="dilevry" name="paymentType">
              
-            <label for="dilevry"> <a href="{{route('checkout.delivery',$product->slug)}}">Paiement cash a la livraison </a></label>
+            <label for="dilevry"> 
+                <a href="{{route('checkout.delivery',$product->slug)}}">
+                    Paiement à la livraison en espèce
+                </a>
+            </label>
         </span>
         <span class="checkbox">
             <input type="radio" class="tocheck"  id="creditBanque" name="paymentType">

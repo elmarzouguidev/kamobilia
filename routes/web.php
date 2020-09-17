@@ -14,17 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', ['uses' => 'SiteController@index', 'as' => 'home']);
-Route::get('/nouveaute', ['uses' => 'SiteController@news', 'as' => 'news']);
+Route::get('/nouveaux-produits', ['uses' => 'SiteController@news', 'as' => 'news']);
 Route::get('/promos-du-mois', ['uses' => 'SiteController@promos', 'as' => 'promos']);
 
-Route::get('/products', ['uses' => 'ProductController@index', 'as' => 'products']);
-Route::get('/products/{slug}', ['uses' => 'ProductController@show', 'as' => 'products.single']);
+Route::get('/produits', ['uses' => 'ProductController@index', 'as' => 'products']);
+Route::get('/produits/{slug}', ['uses' => 'ProductController@show', 'as' => 'products.single']);
 
 Route::get('/categories', ['uses' => 'CategoryController@index', 'as' => 'categories']);
 Route::get('/categories/{slug}', ['uses' => 'CategoryController@show', 'as' => 'categories.single']);
 
-Route::get('/about', ['uses' => 'SiteController@about', 'as' => 'about']);
-Route::get('/contact', ['uses' => 'SiteController@contact', 'as' => 'contact']);
+Route::get('/a-propos', ['uses' => 'SiteController@about', 'as' => 'about']);
+Route::get('/contactez-nous', ['uses' => 'SiteController@contact', 'as' => 'contact']);
 
 Route::get('/terms-of-use', ['uses' => 'SiteController@terms', 'as' => 'terms']);
 
@@ -38,11 +38,13 @@ Route::post('/checkout/{slug}/cash-on-delivery', ['uses' => 'CheckoutController@
     ->middleware('throttle:rate_limit,1');
 
 Route::get('/checkout/{slug}/credit-institution',  ['uses' => 'CheckoutController@creditBanque', 'as' => 'checkout.banque']);
-Route::post('/checkout/{slug}/credit-institution', ['uses' => 'CheckoutController@creditBanquePost', 'as' => 'checkout.banque']);
+Route::post('/checkout/{slug}/credit-institution', ['uses' => 'CheckoutController@creditBanquePost', 'as' => 'checkout.banque'])
+    ->middleware('throttle:rate_limit,1');
 
 Route::get('/checkout/{slug}/credit-direct',  ['uses' => 'CheckoutController@creditDirect', 'as' => 'checkout.direct']);
-Route::post('/checkout/{slug}/credit-direct', ['uses' => 'CheckoutController@creditDirectPost', 'as' => 'checkout.direct']);
-
+Route::post('/checkout/{slug}/credit-direct', ['uses' => 'CheckoutController@creditDirectPost', 'as' => 'checkout.direct'])
+    ->middleware('throttle:rate_limit,1');
+    
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

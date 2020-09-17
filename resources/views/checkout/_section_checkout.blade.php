@@ -2,7 +2,7 @@
     <div class="container">
 
         <header class="hidden">
-            <h3 class="h3 title">Checkout - Step 2</h3>
+            <h3 class="h3 title">{{$product->name}}</h3>
         </header>
 
         <!-- ========================  Cart navigation ======================== -->
@@ -24,9 +24,7 @@
                 <div>
                     <span>Produit</span>
                 </div>
-                <div>
-                    <span>&nbsp;</span>
-                </div>
+            
               
             </div>
             @else
@@ -78,7 +76,7 @@
 
             <!--cart prices -->
 
-            <div class="clearfix">
+            {{--<div class="clearfix">
                 <div class="cart-block cart-block-footer clearfix">
                     <div>
                         <strong>Discount 15%</strong>
@@ -89,14 +87,14 @@
                 </div>
 
        
-            </div>
+            </div>--}}
 
             <!--cart final price -->
 
             <div class="clearfix">
                 <div class="cart-block cart-block-footer clearfix">
                     <div>
-                        <strong>Promo code included!</strong>
+                        <strong>le prix total</strong>
                     </div>
                     <div>
                         <div class="h2 title">$ 1259,00</div>

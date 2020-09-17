@@ -9,7 +9,7 @@
             <span>&nbsp;</span>
         </div>
         <div>
-            <span>Quantité</span>
+            <span>entere votre superficie en m²</span>
         </div>
         <div class="text-right">
             <span>Prix</span>
@@ -40,8 +40,7 @@
                     value="1" 
                     min="1" 
                     class="form-control form-quantity"
-                    onchange="event.preventDefault(); calculateQte(); console.log('uuuu');"
-                    
+                    onchange="event.preventDefault(); calculateQte();"
                 />
             <input type="hidden" name="prodprice" id="prodprice" value="{{$product->prix}}" readonly>
             </div>
