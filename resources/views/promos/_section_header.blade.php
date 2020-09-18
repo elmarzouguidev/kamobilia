@@ -7,7 +7,6 @@
                     <ol class="breadcrumb breadcrumb-inverted">
                         <li><a href="{{route('home')}}"><span class="icon icon-home"></span></a></li>
                         <li><a href="{{route('categories')}}">catégories</a></li>
-                        
                     </ol>
                 </div>
             </header>

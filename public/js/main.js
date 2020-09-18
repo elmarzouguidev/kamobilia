@@ -38,21 +38,24 @@
         closeLogin();
         closeCart();
     });
-
+    objSearch.find('input').on('keyup',function(){
+      /*console.log('Oui cee');*/
+     // objSearch.toggleClass('open');
+    });
     // Open/close cart
 
     $cart.on('click', function () {
         toggleOpen($(this));
         objCart.toggleClass('open');
         closeLogin();
-        closeSearch();
+        /*closeSearch();*/
     });
 
     // Mobile menu open/close
 
     $menu.on('click', function () {
         objMenu.addClass('expanded');
-        closeSearch();
+        /*closeSearch();*/
         closeLogin();
         closeCart();
     });

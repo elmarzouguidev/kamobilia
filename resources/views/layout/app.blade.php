@@ -4,7 +4,7 @@
 <head>
     <!--Powored by HayMacProduction-->
   @include('layout.headerFull')
-
+  <livewire:styles />
 </head>
 
 <body>
