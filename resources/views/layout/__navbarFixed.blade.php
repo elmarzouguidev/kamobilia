@@ -31,9 +31,9 @@
                         <li>FR</li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>
+                {{--<li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>--}}
                 <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
-                <li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span>3</span></a></li>
+                {{--<li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span>3</span></a></li>--}}
             </ul>
         </div> <!--/navigation-top-->
 

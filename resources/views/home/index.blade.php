@@ -11,7 +11,7 @@
    @include('home._section_cate')
    @include('home._section_blog')
    @include('home._section_about')
-  {{--@include('home._section_blog_tow')--}} 
-   @include('home._section_instagram')
+   {{--@include('home._section_blog_tow')--}} 
+   {{--@include('home._section_instagram')--}}
 
 @endsection

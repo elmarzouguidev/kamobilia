@@ -23,7 +23,9 @@ class SearchDropdown extends Component
         // $search = '%' . $this->search . '%';
         //$this->products = Product::where('name', 'like', $search)->get();
         return view('livewire.search-dropdown', [
-            'products' => Product::where('name', 'like', $search)->get(),
+            'products' => Product::where('name', 'like', $search)
+                ->orWhere('searchable', 'like', $search)
+                ->get(),
             'cats'     => Category::where('name', 'like', $search)->get()
             //'products' => Product::where('name', $this->search)->get()
         ]);
@@ -33,7 +35,10 @@ class SearchDropdown extends Component
     {
         $search = '%' . $this->search . '%';
         // $search = '%' . $this->search . '%';
-        $this->products = Product::where('name', 'like', $search)->get();
+        $this->products = Product::where('name', 'like', $search)
+            ->orWhere('searchable', 'like', $search)
+            ->get();
+
         $this->cats     = Category::where('name', 'like', $search)->get();
         $this->class = "open";
         return view('livewire.search-dropdown');

@@ -23,12 +23,14 @@ class CreateProductsTable extends Migration
             $table->longText('description');
             $table->text('excerpt')->nullable();
             $table->string('prix');
+            $table->string('oldprix')->nullable();
             $table->integer('qte')->nullable();
             $table->boolean('hasPromo')->default(false);
             $table->boolean('inHome')->default(false);
             $table->boolean('personalized')->default(false);
             $table->boolean('superficie')->default(false);
             $table->boolean('inStock')->default(true);
+            $table->longText('searchable')->nullable();
             $table->foreignId('category_id')->references('id')->on('categories');
             $table->bigInteger('brand_id')->nullable()->unsigned();
             $table->foreign('brand_id')->references('id')->on('brands');
