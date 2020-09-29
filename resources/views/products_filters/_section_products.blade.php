@@ -100,16 +100,24 @@
                                         </a>
                                         <div class="figure-grid">
                                             @if($product->inHome)
-                                                <span class="label label-warning">Nouveau</span>
+                                                {{--<span class="label label-warning">Nouveau</span>--}}
                                             @endif
                                             <div class="image">
-                                                <a href="#productid1" class="mfp-open">
+                                                <a href="{{route('products.single',$product->slug)}}" class="mfp-open">
                                                     <img src="{{Voyager::image($product->photo)}}" alt="{{$product->name}}" width="360" />
                                                 </a>
                                             </div>
                                             <div class="text">
                                                 <h2 class="title h4"><a href="{{route('products.single',$product->slug)}}">{{$product->name}}</a></h2>
-                                                <sup class="price">{{$product->prix}} MAD</sup>
+                                                @if($product->hasPromo && $product->oldprix!==null)
+                                                 <sub class="price">{{$product->prix}} MAD</sub>
+                                                @else
+                                                 <sup>{{$product->prix}} MAD</sup>
+                                                @endif
+
+                                                @if($product->hasPromo && $product->oldprix!== null)
+                                                 <sup>{{$product->oldprix}} MAD</sup>
+                                                @endif
                                                 <span class="description clearfix">
                                                     {{$product->excerpt}}
                                                 </span>

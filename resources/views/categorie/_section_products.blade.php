@@ -75,26 +75,27 @@
                                         <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                     </span>
                                     <span>
-                                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                        <a href="{{route('products.single',$product->slug)}}" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                     </span>
                                 </div>
                                 <a href="{{route('checkout',$product->slug)}}" class="btn btn-add">
-                                    
-                                    <i class="icon icon-cart">
-                                        
-                                    </i>
+                                    <i class="icon icon-cart"></i>
                                 </a>
                                 <div class="figure-grid">
                                     @if($product->inHome)
                                         <span class="label label-warning">Nouveau</span>
                                     @endif
                                     <div class="image">
-                                        <a href="#productid1" class="mfp-open">
+                                        <a href="{{route('products.single',$product->slug)}}" class="mfp-open">
                                             <img src="{{Voyager::image($product->photo)}}" alt="{{$product->name}}" width="360" />
                                         </a>
                                     </div>
                                     <div class="text">
-                                        <h2 class="title h4"><a href="{{route('products.single',$product->slug)}}">{{$product->name}}</a></h2>
+                                        <h2 class="title h4">
+                                            <a href="{{route('products.single',$product->slug)}}">
+                                                {{$product->name}}
+                                            </a>
+                                        </h2>
                                         <sup>{{$product->prix}} MAD</sup>
                                         <span class="description clearfix">
                                             {{$product->excerpt}}

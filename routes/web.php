@@ -35,16 +35,16 @@ Route::post('/checkout/{slug}', ['uses' => 'CheckoutController@checkoutPerso', '
 
 Route::get('/checkout/{slug}/cash-on-delivery',  ['uses' => 'CheckoutController@cashOnDelivery', 'as' => 'checkout.delivery']);
 Route::post('/checkout/{slug}/cash-on-delivery', ['uses' => 'CheckoutController@cashOnDeliveryPost', 'as' => 'checkout.delivery']);
-    //->middleware('throttle:rate_limit,1');
+//->middleware('throttle:rate_limit,1');
 
 Route::get('/checkout/{slug}/credit-institution',  ['uses' => 'CheckoutController@creditBanque', 'as' => 'checkout.banque']);
 Route::post('/checkout/{slug}/credit-institution', ['uses' => 'CheckoutController@creditBanquePost', 'as' => 'checkout.banque']);
-    //->middleware('throttle:rate_limit,1');
+//->middleware('throttle:rate_limit,1');
 
 Route::get('/checkout/{slug}/credit-direct',  ['uses' => 'CheckoutController@creditDirect', 'as' => 'checkout.direct']);
 Route::post('/checkout/{slug}/credit-direct', ['uses' => 'CheckoutController@creditDirectPost', 'as' => 'checkout.direct']);
-    //->middleware('throttle:rate_limit,1');
-    
+//->middleware('throttle:rate_limit,1');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
