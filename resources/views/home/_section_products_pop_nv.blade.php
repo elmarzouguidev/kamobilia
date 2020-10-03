@@ -22,20 +22,23 @@
 
                 <article>
                     <div class="info">
-                        <span class="add-favorite added">
+                        {{--<span class="add-favorite added">
                             <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                         </span>
                         <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                        </span>
+                            <a href="{{route('products.single',$new->slug)}}"  data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                        </span>--}}
                     </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
+                    <a href="{{route('checkout',$new->slug)}}" class="btn btn-add">
+                                        
+                        <i class="icon icon-cart">
+                            
+                        </i>
+                    </a>
                     <div class="figure-grid">
                         <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="{{Voyager::image($new->photo)}}" alt="{{$new->name}}" width="360" />
+                            <a href="{{route('products.single',$new->slug)}}">
+                                <img loading="lazy" src="{{Voyager::image($new->photo)}}" alt="{{$new->name}}" width="360" />
                             </a>
                         </div>
                         <div class="text">
@@ -60,7 +63,7 @@
 
         <!-- ========================  Product info popup - quick view ======================== -->
 
-        <div class="popup-main mfp-hide" id="productid1">
+        {{--<div class="popup-main mfp-hide" id="productid1">
 
             <!-- === product popup === -->
 
@@ -149,5 +152,8 @@
 
             </div> <!--/product-->
         </div> <!--popup-main-->
+        --}}
+
+
     </div> <!--/container-->
 </section>

@@ -23,10 +23,17 @@
                             <!-- === price wrapper === -->
 
                             <div class="price">
-                                <span class="h3">
-                                    {{$product->prix}} MAD
-                                   {{--<small>$ 2999,00</small>--}} 
+                            
+                                @if($product->hasPromo && $product->oldprix!== null)
+                                <span class="h3">{{$product->oldprix}} MAD
+                                    <small>{{$product->prix}} MAD</small>
+        
                                 </span>
+                                @else
+                                <span class="h3">{{$product->prix}} MAD</span>
+                                    
+                                
+                                @endif
                             </div>
                             <hr />
 
@@ -89,13 +96,11 @@
 
                 <div class="col-md-8 col-sm-12 product-flex-gallery">
 
-                  
-
-                    <a href="{{route('checkout',$product->slug)}}" class="btn btn-buy" data-text="Buy"></a>
+                    <a href="{{route('checkout',$product->slug)}}" class="btn btn-buy" data-text="Commander"></a>
 
                     <div class="owl-product-gallery open-popup-gallery">
                         <a href="{{Voyager::image($product->photo)}}">
-                            <img src="{{Voyager::image($product->photo)}}" alt="" height="500" />
+                            <img src="{{Voyager::image($product->photo)}}" alt="{{$product->name}}" height="500" />
                         </a>
 
                         @php
@@ -124,20 +129,20 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active">
                             <a href="#designer" aria-controls="designer" role="tab" data-toggle="tab">
-                                <i class="icon icon-user"></i>
-                                <span>Collection</span>
+                                <i class="icon icon-cart"></i>
+                                <span>Produits dans la même catégorie</span>
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="#design" aria-controls="design" role="tab" data-toggle="tab">
                                 <i class="icon icon-sort-alpha-asc"></i>
-                                <span>Specification</span>
+                                <span>Spécification</span>
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="#rating" aria-controls="rating" role="tab" data-toggle="tab">
                                 <i class="icon icon-thumbs-up"></i>
-                                <span>Rating</span>
+                                <span>Avis</span>
                             </a>
                         </li>
                     </ul>
@@ -151,7 +156,7 @@
 
                                 <!-- === designer collection title === -->
 
-                                <h3>Designers collection</h3>
+                                <h3>Produits</h3>
 
                                 <div class="products">
                                     <div class="row">
@@ -161,9 +166,9 @@
                                             <article>
                                                 <div class="figure-grid">
                                                     <div class="image">
-                                                        <a href="#productid1" class="mfp-open">
+                                                    <a href="#productid{{$collect->id}}" class="mfp-open">
                                                             <img src="{{Voyager::image($collect->photo)}}" alt="{{$collect->name}}" width="360" />
-                                                        </a>
+                                                    </a>
                                                     </div>
                                                     <div class="text">
                                                         <h4 class="title"><a href="{{route('products.single',$collect->slug)}}">{{$collect->name}}</a></h4>
@@ -214,7 +219,7 @@
                             <!-- ============ ratings ============ -->
 
                             <div class="content">
-                                <h3>Rating</h3>
+                                <h3>Avis</h3>
 
                                 <div class="row">
 
@@ -226,74 +231,77 @@
                                             <!-- === rating === -->
 
                                             <div class="rating clearfix">
-  
-                                 
 
                                             </div>
                                             <div class="comment-wrapper">
 
                                                 <!-- === comment === -->
+                                                
+                                               @foreach($product->avis as $avi)
+                                                    <div class="comment-block">
+                                                        <div class="comment-user">
+                                                            <div><img src="{{asset('assets/images/user-2.jpg')}}" alt="{{$avi->name}}" width="70" /></div>
+                                                            <div>
+                                                                <h5>
+                                                                    <span>{{$avi->name}}</span>
+                                                                    <span class="pull-right">
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                    </span>
+                                                                    <small>{{$avi->created_at}}</small>
+                                                                </h5>
+                                                            </div>
+                                                        </div>
 
-                                                <div class="comment-block">
-                                                    <div class="comment-user">
-                                                        <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                                                        <div>
-                                                            <h5>
-                                                                <span>John Doe</span>
-                                                                <span class="pull-right">
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                </span>
-                                                                <small>03.05.2017</small>
-                                                            </h5>
+                                                        <!-- comment description -->
+
+                                                        <div class="comment-desc">
+                                                            <p>
+                                                                {{$avi->comment}}
+                                                            </p>
                                                         </div>
                                                     </div>
-
-                                                    <!-- comment description -->
-
-                                                    <div class="comment-desc">
-                                                        <p>
-                                                            In vestibulum tellus ut nunc accumsan eleifend. Donec mattis cursus ligula, id
-                                                            iaculis dui feugiat nec. Etiam ut ante sed neque lacinia volutpat. Maecenas
-                                                            ultricies tempus nibh, sit amet facilisis mauris vulputate in. Phasellus
-                                                            tempor justo et mollis facilisis. Donec placerat at nulla sed suscipit. Praesent
-                                                            accumsan, sem sit amet euismod ullamcorper, justo sapien cursus nisl, nec
-                                                            gravida
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                                @endforeach
 
                                           
 
                                             </div><!--/comment-wrapper-->
 
                                             <div class="comment-header">
-                                                <a href="#" class="btn btn-clean-dark">12 comments</a>
+                                                <a href="#" class="btn btn-clean-dark">{{$product->avis()->count()}} comments</a>
                                             </div> <!--/comment-header-->
                                             <!-- === add comment === -->
 
                                             <div class="comment-add">
 
                                                 <div class="comment-reply-message">
-                                                    <div class="h3 title">Leave a Reply </div>
+                                                    <div class="h3 title">Ecrivez votre avi </div>
                                                     <p>Your email address will not be published.</p>
                                                 </div>
+                                                <div class="alert alert-success my-2 hidden" id="jquery_success_message">
+                                                    Email successfully sent
+                                                </div>
 
-                                                <form action="#" method="post">
+                                                <form action="{{route('products.avis',$product->slug)}}" method="post" id="jquery_form">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="name" value="" placeholder="Your Name" />
+                                                        <input type="text" class="form-control jquery_field" name="name" value="" placeholder="Nom " />
+                                                        <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_name"></div>
+                                                        @csrf
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="name" value="" placeholder="Your Email" />
+                                                        <input type="email" class="form-control jquery_field" name="email" value="" placeholder="E-mail" />
+                                                        <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_email"></div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea rows="10" class="form-control" placeholder="Your comment"></textarea>
+                                                        <textarea rows="10" class="form-control jquery_field" name="comment" placeholder="Commanter"></textarea>
+                                                        <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_comment"></div>
                                                     </div>
                                                     <div class="clearfix text-center">
-                                                        <a href="#" class="btn btn-main">Add comment</a>
+                                                        
+                                                        <button type="submit" class="btn btn-main">envoyer</button>
                                                     </div>
                                                 </form>
 

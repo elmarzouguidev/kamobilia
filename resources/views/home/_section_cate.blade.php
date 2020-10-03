@@ -26,7 +26,7 @@
             <!--logo-item-->
             <div class="stretcher-logo">
                 <div class="text">
-                    <span class="f-icon f-icon-bathroom"></span>
+                    <span class="f-icon {{$categorie->icon_code ??'f-icon-bathroom'}}"></span>
                     <span class="text-intro">{{$categorie->name}}</span>
                 </div>
             </div>
@@ -45,9 +45,9 @@
 
         <li class="stretcher-item more">
             <div class="more-icon">
-                <span data-title-show="Show more" data-title-hide="+"></span>
+                <span data-title-show="tous les catégories" data-title-hide="+"></span>
             </div>
-            <a href="{{route('products')}}"></a>
+            <a href="{{route('categories')}}"></a>
         </li>
 
     </ul>

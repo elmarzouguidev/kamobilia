@@ -22,5 +22,5 @@
             </div>
         @endforeach
 
-    </div> <!--/owl-slider-->
+    </div>
 </section>

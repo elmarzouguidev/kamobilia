@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AviRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -20,16 +21,30 @@ class ProductController extends Controller
 
     public function show($slug)
     {
-        
+
         $product = Product::whereSlug($slug)->firstOrFail();
 
-        $collections = Product::where('category_id',$product->category_id)
-                                 ->whereNotIn('id',[$product->id])
-                                 ->get();
+        $collections = Product::where('category_id', $product->category_id)
+            ->whereNotIn('id', [$product->id])
+            ->get();
 
-        return  view('products.single.index',compact('product','collections'));
+        return  view('products.single.index', compact('product', 'collections'));
     }
 
+
+    public function avis(AviRequest $request, $slug)
+    {
+        $product = Product::whereSlug($slug)->firstOrFail();
+        if ($product) {
+            $product->avis()->create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'comment' => $request->comment
+            ]);
+            return response()->noContent();
+        }
+        return redirect()->route('products.single', $slug);
+    }
     /**
      * Show the form for editing the specified resource.
      *

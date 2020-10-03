@@ -16,7 +16,7 @@
                     <figure>
                         
                         {{--<img src="assets/images/gallery-4.jpg">--}} 
-                        <i class="f-icon f-icon-armchair"></i>
+                        <i class="f-icon {{$cate->code_icon ?? 'f-icon-armchair'}}"></i>
                         <figcaption>{{$cate->name}}</figcaption>
 
                     </figure>

@@ -2,7 +2,7 @@
 
     <div class="white-block">
 
-        <div class="h4">choisir un mode de paiement</div>
+        <div class="h4">{{setting('checkout.mode_de_payment')}}</div>
     
         <hr/>
 
@@ -11,35 +11,33 @@
              
             <label for="dilevry"> 
                 <a href="{{route('checkout.delivery',$product->slug)}}">
-                    Paiement à la livraison en espèce
+                   {{setting('checkout.cache_on_delivery')}}
                 </a>
             </label>
         </span>
         <span class="checkbox">
             <input type="radio" class="tocheck"  id="creditBanque" name="paymentType">
-            <label for="creditBanque"><a href="{{route('checkout.banque',$product->slug)}}">Paiement Credit par etablissement de credit</a></label>
+            <label for="creditBanque">
+                <a href="{{route('checkout.banque',$product->slug)}}">
+                   {{setting('checkout.credit_ste_banque')}}
+                </a>
+            </label>
             
         </span>
         <span class="checkbox">
             <input type="radio" class="tocheck" id="creditdirect" name="paymentType">
-            <label for="creditdirect"><a href="{{route('checkout.direct',$product->slug)}}">Paiement a credit par cheque directe a la societe</a></label>
+            <label for="creditdirect">
+                <a href="{{route('checkout.direct',$product->slug)}}">
+                  {{setting('checkout.credit_ste')}}
+                </a>
+            </label>
             
         </span>
 
         <hr />
 
         <div class="clearfix">
-            <p>A frequently overlooked, powerful fulfillment option is offering local pick-up. If you have a physical location and can allow your customers to forgo paying shipping costs altogether, you should!</p>                            <p><strong>Benefits:</strong></p>
-            <ul>
-                <li>Avoid both shipping and packaging costs</li>
-                <li>Develop a face-to-face relationship with your customers</li>
-                <li>Potential for additional purchases while customers are at your store</li>
-            </ul>
-            <p><strong>Challenges:</strong></p>
-            <ul>
-                <li>Limited business hours can sometimes make it difficult to coordinate pickup</li>
-                <li>Shoppers who cross state lines or ZIP codes may not know the sales tax rates in your area</li>
-            </ul>
+            {!! setting('checkout.payment') !!}
         </div>
     </div>
 

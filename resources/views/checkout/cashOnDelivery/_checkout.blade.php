@@ -4,7 +4,7 @@
     <div class="container">
 
         <header class="hidden">
-            <h3 class="h3 title">Paiement à la livraison en espèce</h3>
+            <h3 class="h3 title">{{setting('checkout.cache_on_delivery')}}</h3>
         </header>
 
         <!-- ========================  Cart navigation ======================== -->
@@ -37,7 +37,7 @@
         <div class="clearfix">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="{{route('checkout',$product->slug)}}" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span> Back to cart</a>
+                    <a href="{{route('checkout',$product->slug)}}" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span> {{$product->name}}</a>
                 </div>
             
             </div>

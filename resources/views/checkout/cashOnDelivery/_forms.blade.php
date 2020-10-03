@@ -1,6 +1,6 @@
 <div class="login-block login-block-signup">
 
-    <div class="h4">Paiement à la livraison en espèce
+    <div class="h4">{{setting('checkout.cache_on_delivery')}}
          {{--<a href="javascript:void(0);" class="btn btn-main btn-xs btn-login pull-right">Log in</a>--}}
 
     </div>
@@ -45,7 +45,7 @@
                         <input type="hidden" name="product" value="{{$product->slug}}" readonly>
                         <input type="hidden" name="totalPriceer" id="totalPriceer" value="{{$product->prix}}" readonly>
                         <input type="hidden" name="totalQtee" id="totalQtee" value="1" min="1" readonly>
-                        <input type="text" name="tele" class="form-control tele" value="{{old('tele')}}" placeholder="téléphone" />
+                        <input type="text"   name="tele" class="form-control tele" value="{{old('tele')}}" placeholder="téléphone" />
                     </div>
                 </div>
                 <div class="col-md-12">

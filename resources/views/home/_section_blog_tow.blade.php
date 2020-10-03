@@ -23,7 +23,7 @@
                 <article>
                     <a href="article.html">
                         <div class="image" style="background-image:url(assets/images/blog-1.jpg)">
-                            <img src="assets/images/blog-1.jpg" alt="" />
+                            <img  loading="lazy" src="assets/images/blog-1.jpg" alt="" />
                         </div>
                         <div class="entry entry-table">
                             <div class="date-wrapper">

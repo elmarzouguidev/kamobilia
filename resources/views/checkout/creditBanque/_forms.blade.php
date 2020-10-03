@@ -1,6 +1,6 @@
 <div class="login-block login-block-signup">
 
-    <div class="h4">Paiement Credit par etablissement de credit
+    <div class="h4">{{setting('checkout.credit_ste_banque')}}
          {{--<a href="javascript:void(0);" class="btn btn-main btn-xs btn-login pull-right">Log in</a>--}}
     </div>
 

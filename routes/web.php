@@ -19,12 +19,14 @@ Route::get('/promos-du-mois', ['uses' => 'SiteController@promos', 'as' => 'promo
 
 Route::get('/produits', ['uses' => 'ProductController@index', 'as' => 'products']);
 Route::get('/produits/{slug}', ['uses' => 'ProductController@show', 'as' => 'products.single']);
+Route::post('/produits/{slug}', ['uses' => 'ProductController@avis', 'as' => 'products.avis']);
 
 Route::get('/categories', ['uses' => 'CategoryController@index', 'as' => 'categories']);
 Route::get('/categories/{slug}', ['uses' => 'CategoryController@show', 'as' => 'categories.single']);
 
 Route::get('/a-propos', ['uses' => 'SiteController@about', 'as' => 'about']);
 Route::get('/contactez-nous', ['uses' => 'SiteController@contact', 'as' => 'contact']);
+Route::post('/contactez-nous', ['uses' => 'SiteController@contactPost', 'as' => 'contact']);
 
 Route::get('/terms-of-use', ['uses' => 'SiteController@terms', 'as' => 'terms']);
 

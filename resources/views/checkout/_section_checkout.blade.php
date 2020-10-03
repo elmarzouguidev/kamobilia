@@ -91,7 +91,7 @@
         <div class="clearfix">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="{{route('products.single',$product->slug)}}" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span> Back to {{$product->name}}</a>
+                    <a href="{{route('products.single',$product->slug)}}" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span>{{$product->name}}</a>
                 </div>
             
             </div>

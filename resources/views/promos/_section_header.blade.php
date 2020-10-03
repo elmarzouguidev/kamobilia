@@ -1,6 +1,6 @@
         <!-- ======================== Main header ======================== -->
 
-        <section class="main-header" style="background-image:url(assets/images/gallery-3.jpg)">
+        <section class="main-header" style="background-image:url({{Voyager::image(setting('promos.promos_image'))}})">
             <header>
                 <div class="container">
                     <h1 class="h2 title">Promos du mois</h1>

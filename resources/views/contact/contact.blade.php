@@ -14,28 +14,28 @@
 
                     <div class="contact-info">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <figure class="text-center">
                                     <span class="icon icon-map-marker"></span>
                                     <figcaption>
-                                        <strong>Where are we?</strong>
-                                        <span>200 12th Ave, New York, <br />NY 10001, USA</span>
+                                        <strong>location</strong>
+                                        <span>{{setting('contact.address')}}</span>
                                     </figcaption>
                                 </figure>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <figure class="text-center">
                                     <span class="icon icon-phone"></span>
                                     <figcaption>
-                                        <strong>Call us</strong>
+                                        <strong>Téléphone</strong>
                                         <span>
-                                            <strong>T</strong> +1 222 333 4444 <br />
-                                            <strong>F</strong> +1 222 333 5555
+                                             {{setting('contact.tele')}} <br />
+                                            
                                         </span>
                                     </figcaption>
                                 </figure>
                             </div>
-                            <div class="col-sm-4">
+                            {{--<div class="col-sm-4">
                                 <figure class="text-center">
                                     <span class="icon icon-clock"></span>
                                     <figcaption>
@@ -46,52 +46,60 @@
                                         </span>
                                     </figcaption>
                                 </figure>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
 
                     <div class="banner">
                         <div class="row">
                             <div class="col-md-offset-1 col-md-10 text-center">
-                                <h2 class="title">Send an email</h2>
+                                <h2 class="title">{{setting('contact.sendus_msg')}}</h2>
                                 <p>
-                                    Thanks for your interest in Mobel Theme. We believe in creativity as one of the major forces of progress.
-                                    Please use this form if you have any questions about our products and we'll get back with you very soon.
+                                   {{setting('contact.sendus_msg_desc')}}
                                 </p>
 
                                 <div class="contact-form-wrapper">
 
-                                    <a class="btn btn-clean open-form" data-text-open="Contact us via form" data-text-close="Close form">Contact us via form</a>
+                                    {{--<a class="btn btn-clean open-form" data-text-open="Contact us via form" data-text-close="Close form">Contact us via form</a>--}}
 
-                                    <div class="contact-form clearfix">
-                                        <form id="sendmail" name="sendmail" action="sendmail.php" method="post">
+                                    <div class="contact-formd clearfix">
+                                        <div class="alert alert-success my-2 hidden" id="jquery_success_message">
+                                            votre message a été envoyé avec succès <br>
+                                            merci d'avoir nous contacter
+                                        </div>
+                                        <form id="sendmail" name="sendmail" action="{{route('contact')}}" method="post">
                                             <div class="row">
+                                                @csrf
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input id="Name" name="Name" type="text" value="" class="form-control" placeholder="Your name" >
+                                                        <input id="Name" name="nom" type="text" value="" class="form-control jquery_field" placeholder="Your name" >
+                                                        <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_nom"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input id="Email" name="Email" type="email" value="" class="form-control" placeholder="Your email" >
+                                                        <input id="Email" name="email" type="email" value="" class="form-control jquery_field" placeholder="Your email" >
+                                                        <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_email"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input id="Subject" name="Subject" type="text" value="" class="form-control" placeholder="Subject" >
+                                                        <input id="Subject" name="subject" type="text" value="" class="form-control jquery_field" placeholder="Subject" >
+                                                        <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_subject"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <textarea id="Comment" name="Comment" class="form-control" placeholder="Your message" rows="10"></textarea>
+                                                        <textarea id="Comment" name="comment" class="form-control jquery_field" placeholder="Your message" rows="10"></textarea>
+                                                        <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_comment"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12 text-center">
-                                                    <input type="submit" class="btn btn-clean" value="Send message" />
+                                                    <input type="submit" class="btn btn-clean" value="envoyer" />
                                                 </div>
                                             </div>
                                         </form>

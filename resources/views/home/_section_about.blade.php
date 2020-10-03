@@ -1,4 +1,4 @@
-<section class="banner" style="background-image:url(assets/images/gallery-4.jpg)">
+<section class="banner" style="background-image:url({{Voyager::image(setting('acceuil.home_histoire_image'))}})">
 
     <div class="container">
         <div class="row">
