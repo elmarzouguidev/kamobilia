@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^2.2",
         "propaganistas/laravel-phone": "^4.2",
+        "renatomarinho/laravel-page-speed": "^1.9",
         "spatie/laravel-query-builder": "^3.0",
         "tcg/voyager": "^1.4",
         "voyager-excel": "dev-master"

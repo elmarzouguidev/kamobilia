@@ -29,7 +29,7 @@ class ContactUs extends Mailable
      */
     public function build()
     {
-        return $this->from('admin@moustakbaly.ma')
+        return $this->from('admin@kamobilier.ma')
         ->subject('Kamobilia Order')
         ->view('mails.contactUs')
         ->with('data', $this->data);

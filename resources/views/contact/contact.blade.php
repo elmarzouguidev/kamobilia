@@ -72,28 +72,28 @@
                                                 @csrf
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input id="Name" name="nom" type="text" value="" class="form-control jquery_field" placeholder="Your name" >
+                                                        <input id="Name" name="nom" type="text" value="" class="form-control jquery_field" placeholder="Nom Complet" >
                                                         <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_nom"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input id="Email" name="email" type="email" value="" class="form-control jquery_field" placeholder="Your email" >
+                                                        <input id="Email" name="email" type="email" value="" class="form-control jquery_field" placeholder="E-Mail" >
                                                         <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_email"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input id="Subject" name="subject" type="text" value="" class="form-control jquery_field" placeholder="Subject" >
+                                                        <input id="Subject" name="subject" type="text" value="" class="form-control jquery_field" placeholder="Suject" >
                                                         <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_subject"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <textarea id="Comment" name="comment" class="form-control jquery_field" placeholder="Your message" rows="10"></textarea>
+                                                        <textarea id="Comment" name="comment" class="form-control jquery_field" placeholder="message" rows="10"></textarea>
                                                         <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_comment"></div>
                                                     </div>
                                                 </div>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-info">
+                    {{--<div class="contact-info">
                         <div class="row">
                             <div class="col-xs-6 col-sm-4">
                                 <figure>
@@ -179,7 +179,9 @@
                                 </figure>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
+
+
                 </div>
 
 

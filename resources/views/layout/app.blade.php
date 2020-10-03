@@ -3,7 +3,8 @@
 
 <head>
     <!--Powored by HayMacProduction-->
-  @include('layout.headerFull')
+  {{--@include('layout.headerFull')--}}
+  @include('layout.header')
   <livewire:styles />
 </head>
 
@@ -13,8 +14,8 @@
 
     <div class="wrapper">
 
-        <!--Use class "navbar-fixed" or "navbar-default" -->
-        <!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
+        {{--Use class "navbar-fixed" or "navbar-default"
+        If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)--}}
 
         <!-- ======================== Navigation ======================== -->
 
@@ -27,7 +28,8 @@
 
     </div> <!--/wrapper-->
 
-  @include('layout.scriptFull')
+  {{--@include('layout.scriptFull')--}}
+   @include('layout.scripts')
 
 </body>
 

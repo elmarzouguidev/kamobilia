@@ -6,7 +6,7 @@
         {{--<input wire:model.lazy="search" type="text" class="form-control" placeholder="Search..." />--}}
         {{--<input wire:model.defer="search" type="text" class="form-control" placeholder="Search..." />--}}
 
-        <button wire:click.prevent="getData()"  class="btn btn-main btn-search">Go!</button>
+        <button wire:click.prevent="getData()"  class="btn btn-main btn-search">Entrer</button>
 
         <!-- Search results - live search -->
         <div class="search-results">

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,4 +50,8 @@ Route::post('/checkout/{slug}/credit-direct', ['uses' => 'CheckoutController@cre
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::get('/config', function () {
+        Artisan::call('config:cache');
+    });
 });

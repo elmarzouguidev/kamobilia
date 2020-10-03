@@ -15,19 +15,19 @@
 <title>Mobel - Furniture Website Template</title>
 
 <!--CSS styles-->
-<link rel="stylesheet" media="all" href="{{asset('css/bootstrap.css')}}" />
-<link rel="stylesheet" media="all" href="{{asset('css/animate.css')}}" />
-<link rel="stylesheet" media="all" href="{{asset('css/font-awesome.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/bootstrap.min.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/animate.min.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/font-awesome.min.css')}}" />
 <link rel="stylesheet" media="all" href="{{asset('css/furniture-icons.css')}}" />
-<link rel="stylesheet" media="all" href="{{asset('css/linear-icons.css')}}" />
-<link rel="stylesheet" media="all" href="{{asset('css/magnific-popup.css')}}" />
-<link rel="stylesheet" media="all" href="{{asset('css/owl.carousel.css')}}" />
-<link rel="stylesheet" media="all" href="{{asset('css/ion-range-slider.css')}}" />
-<link rel="stylesheet" media="all" href="{{asset('css/theme.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/linear-icons.min.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/magnific-popup.min.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/owl.carousel.min.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/ion-range-slider.min.css')}}" />
+<link rel="stylesheet" media="all" href="{{asset('css/theme.min.css')}}" />
 
 <!--Google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;subset=latin-ext" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap&amp;subset=latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

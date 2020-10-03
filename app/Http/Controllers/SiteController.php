@@ -62,6 +62,7 @@ class SiteController extends Controller
     {
 
         Mail::to('abdo@gmail.com')->send(new ContactUs($request->only(['nom', 'email', 'subject', 'comment'])));
+        //dd($ok);
         return response()->noContent();
     }
     public function terms()
