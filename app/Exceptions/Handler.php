@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Exceptions\ThrottleRequestsException;
+use Illuminate\Session\TokenMismatchException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -70,6 +71,13 @@ class Handler extends ExceptionHandler
                 'data' => 'sorry this method is not Allowed from Browser Directly'
             ], 404);
         }*/
+
+        if($exception instanceof TokenMismatchException){
+           /* return response()->json([
+                'data' => 'sorry this method is not Allowed from Browser Directly'
+            ], 419);*/
+            return redirect()->back();
+        }
         return parent::render($request, $exception);
     }
 }

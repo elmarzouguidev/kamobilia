@@ -77,8 +77,7 @@ class CheckoutController extends Controller
             return view('orders.checkoutPerso.ok', compact('product', 'order'));
         }
 
-        return redirect()->route('checkout.perso',$product->slug)->with('error','un probleme est survenu lors de votre demande');
-
+        return redirect()->route('checkout.perso', $product->slug)->with('error', 'un probleme est survenu lors de votre demande');
     }
 
     public function cashOnDelivery($slug)
@@ -95,7 +94,7 @@ class CheckoutController extends Controller
 
     public function cashOnDeliveryPost(CodRequest $request)
     {
-       // dd($request->all());
+        // dd($request->all());
 
         $product = Product::whereSlug($request->product)->firstOrFail();
         $order = new Order();
@@ -124,11 +123,11 @@ class CheckoutController extends Controller
             //dd($path);
             Mail::to($request->email)->send(new OrderMail($order, $product));
             Mail::to('abdo@gmail.com')->send(new OrderMailAdmin($order, $product));
-        
+            $request->session()->flush();
             return view('orders.cashOnDelivery.ok', compact('product', 'order'));
         }
 
-        return redirect()->route('checkout.delivery',$product->slug)->with('error','un probleme est survenu lors de votre demande');
+        return redirect()->route('checkout.delivery', $product->slug)->with('error', 'un probleme est survenu lors de votre demande');
     }
 
     public function orderConfirmed()
@@ -178,7 +177,7 @@ class CheckoutController extends Controller
             //dd($path);
             Mail::to('abdo@gmail.com')->send(new OrderMailAdmin($order, $product, $path));
             Mail::to($request->email)->send(new OrderMail($order, $product));
-
+            $request->session()->flush();
             return view('orders.cashOnDelivery.ok', compact('product', 'order'));
         }
 
@@ -229,7 +228,7 @@ class CheckoutController extends Controller
             //dd($path);
             Mail::to('abdo@gmail.com')->send(new OrderMailAdmin($order, $product, $path));
             Mail::to($request->email)->send(new OrderMail($order, $product));
-
+            $request->session()->flush();
             return view('orders.cashOnDelivery.ok', compact('product', 'order'));
         }
 

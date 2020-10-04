@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', ['uses' => 'SiteController@index', 'as' => 'home']);
+Route::post('subscribe', ['uses' => 'SubscribeController@store', 'as' => 'subscribe']);
 
 Route::get('/nouveaux-produits', ['uses' => 'SiteController@news', 'as' => 'news']);
 Route::get('/promos-du-mois', ['uses' => 'SiteController@promos', 'as' => 'promos']);
@@ -50,11 +51,29 @@ Route::post('/checkout/{slug}/credit-direct', ['uses' => 'CheckoutController@cre
 //->middleware('throttle:rate_limit,1');
 
 
-Route::post('subscribe',['uses'=>'SubscribeController@store','as'=>'subscribe']);
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
-    Route::get('/config', function () {
+    Route::get('/setconfig', function () {
         Artisan::call('config:cache');
+    });
+    Route::get('/clearconfig', function () {
+        Artisan::call('config:clear');
+    });
+    Route::get('/viewclear', function () {
+        Artisan::call('view:clear');
+    });
+
+    Route::get('/cacheclear', function () {
+        Artisan::call('cache:clear');
+    });
+
+    Route::get('/routeclear', function () {
+        Artisan::call('route:clear');
+    });
+
+    Route::get('/storage', function () {
+        Artisan::call('storage:link');
     });
 });
