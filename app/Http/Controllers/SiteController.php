@@ -14,6 +14,7 @@ use App\Slider;
 use App\Social;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use TCG\Voyager\Models\Page;
 
 class SiteController extends Controller
 {
@@ -49,7 +50,8 @@ class SiteController extends Controller
 
     public function about()
     {
-        return view('about.index');
+        $page = Page::whereSlug('a-propos-de-nous')->whereStatus('active')->firstOrFail();
+        return view('about.index', compact('page'));
     }
 
     public function contact()
@@ -67,7 +69,7 @@ class SiteController extends Controller
     }
     public function terms()
     {
-
-        return view('terms.index');
+        $page = Page::whereSlug('condition-d-utilisation')->whereStatus('active')->firstOrFail();
+        return view('terms.index', compact('page'));
     }
 }

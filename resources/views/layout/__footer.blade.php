@@ -5,13 +5,13 @@
         <div class="footer-showroom">
             <div class="row">
                 <div class="col-sm-8">
-                    <h2>Visit our showroom</h2>
-                    <p>200 12th Ave, New York, NY 10001, USA</p>
-                    <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
+                    <h2>{{setting('footer.showroom')}}</h2>
+                    <p>{{setting('contact.address')}}</p>
+                   
                 </div>
                 <div class="col-sm-4 text-center">
                     <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-                    <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
+                    <div class="call-us h4"><span class="icon icon-phone-handset"></span> {{setting('contact.tele')}}</div>
                 </div>
             </div>
         </div>
@@ -20,35 +20,52 @@
         <div class="footer-links">
             <div class="row">
                 <div class="col-sm-4 col-md-2">
-                    <h5>Browse by</h5>
+                    <h5>lien rapide</h5>
                     <ul>
-                        <li><a href="#">Brand</a></li>
-                        <li><a href="#">Product</a></li>
-                        <li><a href="#">Category</a></li>
+                    <li><a href="{{route('categories')}}">catégories</a></li>
+                        <li><a href="{{route('promos')}}">promos du mois</a></li>
+                        <li><a href="{{route('news')}}">Nouveauté</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-2">
+                {{--<div class="col-sm-4 col-md-2">
                     <h5>Recources</h5>
                     <ul>
                         <li><a href="#">Design</a></li>
                         <li><a href="#">Projects</a></li>
                         <li><a href="#">Sales</a></li>
                     </ul>
-                </div>
+                </div>--}}
                 <div class="col-sm-4 col-md-2">
-                    <h5>Our company</h5>
+                    <h5> société</h5>
+                       
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{{route('about')}}">à-propos</a></li>
+                        <li><a href="{{route('terms')}}">condition d'utilisation</a></li>
+                        <li><a href="{{route('contact')}}">contact</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-12 col-md-6">
-                    <h5>Sign up for our newsletter</h5>
-                    <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
+                    <h5>Inscrivez-vous à notre newsletter</h5>
+                        
+                    <p>
+                        <i>
+                            
+                          Ajoutez votre adresse e-mail pour vous inscrire à nos e-mails mensuels et recevoir des offres promotionnelles.
+                        </i>
+                    </p>
+                    <div class="alert alert-success hidden" id="jquery_success_message">
+                        merci de votre abonnement
+                    </div>
+                    <div class="alert alert-danger jquery_error_message hidden" id="jquery_error_email"></div>
                     <div class="form-group form-newsletter">
-                        <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
-                        <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
+                        
+                       <form action="{{route('subscribe')}}" method="post" id="formSubsciber">
+                            @csrf
+                        
+                            <input class="form-control jquery_field" type="email" name="email" value="" placeholder="Email address" />
+                            
+                            <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -58,16 +75,12 @@
 
         <div class="footer-social">
             <div class="row">
-                <div class="col-sm-6">
-                    <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
-                </div>
+              
                 <div class="col-sm-6 links">
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="{{setting('social-link.facebook')}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+
+                        <li><a href="{{setting('social-link.instagram')}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>

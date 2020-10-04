@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', ['uses' => 'SiteController@index', 'as' => 'home']);
+
 Route::get('/nouveaux-produits', ['uses' => 'SiteController@news', 'as' => 'news']);
 Route::get('/promos-du-mois', ['uses' => 'SiteController@promos', 'as' => 'promos']);
 
@@ -48,6 +49,8 @@ Route::get('/checkout/{slug}/credit-direct',  ['uses' => 'CheckoutController@cre
 Route::post('/checkout/{slug}/credit-direct', ['uses' => 'CheckoutController@creditDirectPost', 'as' => 'checkout.direct']);
 //->middleware('throttle:rate_limit,1');
 
+
+Route::post('subscribe',['uses'=>'SubscribeController@store','as'=>'subscribe']);
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
